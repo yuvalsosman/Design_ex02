@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.Label birthdayLabel;
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label religionLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.friendsList = new System.Windows.Forms.ListBox();
             this.pictureBoxFriends = new System.Windows.Forms.PictureBox();
             this.textForPost = new System.Windows.Forms.TextBox();
@@ -58,11 +58,11 @@
             this.gamePhoto = new System.Windows.Forms.PictureBox();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.birthdayLabel1 = new System.Windows.Forms.Label();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emailLabel1 = new System.Windows.Forms.Label();
             this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
             this.nameLabel1 = new System.Windows.Forms.Label();
             this.religionLabel1 = new System.Windows.Forms.Label();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             birthdayLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -73,9 +73,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSymbol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamePhoto)).BeginInit();
             this.panelInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // birthdayLabel
+            // 
+            birthdayLabel.AutoSize = true;
+            birthdayLabel.Location = new System.Drawing.Point(170, 41);
+            birthdayLabel.Name = "birthdayLabel";
+            birthdayLabel.Size = new System.Drawing.Size(71, 20);
+            birthdayLabel.TabIndex = 41;
+            birthdayLabel.Text = "Birthday:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(170, 68);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(52, 20);
+            emailLabel.TabIndex = 43;
+            emailLabel.Text = "Email:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(170, 97);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(55, 20);
+            nameLabel.TabIndex = 47;
+            nameLabel.Text = "Name:";
+            // 
+            // religionLabel
+            // 
+            religionLabel.AutoSize = true;
+            religionLabel.Location = new System.Drawing.Point(171, 125);
+            religionLabel.Name = "religionLabel";
+            religionLabel.Size = new System.Drawing.Size(70, 20);
+            religionLabel.TabIndex = 49;
+            religionLabel.Text = "Religion:";
             // 
             // friendsList
             // 
@@ -355,15 +391,6 @@
             this.panelInfo.Size = new System.Drawing.Size(499, 207);
             this.panelInfo.TabIndex = 45;
             // 
-            // birthdayLabel
-            // 
-            birthdayLabel.AutoSize = true;
-            birthdayLabel.Location = new System.Drawing.Point(170, 41);
-            birthdayLabel.Name = "birthdayLabel";
-            birthdayLabel.Size = new System.Drawing.Size(71, 20);
-            birthdayLabel.TabIndex = 41;
-            birthdayLabel.Text = "Birthday:";
-            // 
             // birthdayLabel1
             // 
             this.birthdayLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Birthday", true));
@@ -373,14 +400,9 @@
             this.birthdayLabel1.TabIndex = 42;
             this.birthdayLabel1.Text = "label1";
             // 
-            // emailLabel
+            // userBindingSource
             // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(170, 68);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(52, 20);
-            emailLabel.TabIndex = 43;
-            emailLabel.Text = "Email:";
+            this.userBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.User);
             // 
             // emailLabel1
             // 
@@ -400,15 +422,6 @@
             this.imageNormalPictureBox.TabIndex = 46;
             this.imageNormalPictureBox.TabStop = false;
             // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(170, 97);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(55, 20);
-            nameLabel.TabIndex = 47;
-            nameLabel.Text = "Name:";
-            // 
             // nameLabel1
             // 
             this.nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Name", true));
@@ -417,15 +430,6 @@
             this.nameLabel1.Size = new System.Drawing.Size(214, 23);
             this.nameLabel1.TabIndex = 48;
             this.nameLabel1.Text = "label1";
-            // 
-            // religionLabel
-            // 
-            religionLabel.AutoSize = true;
-            religionLabel.Location = new System.Drawing.Point(171, 125);
-            religionLabel.Name = "religionLabel";
-            religionLabel.Size = new System.Drawing.Size(70, 20);
-            religionLabel.TabIndex = 49;
-            religionLabel.Text = "Religion:";
             // 
             // religionLabel1
             // 
@@ -436,16 +440,12 @@
             this.religionLabel1.TabIndex = 50;
             this.religionLabel1.Text = "label1";
             // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.User);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.ClientSize = new System.Drawing.Size(1431, 1036);
+            this.ClientSize = new System.Drawing.Size(1164, 1036);
             this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.startGameButton);
             this.Controls.Add(this.linkPages);
@@ -475,8 +475,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gamePhoto)).EndInit();
             this.panelInfo.ResumeLayout(false);
             this.panelInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

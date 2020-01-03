@@ -1,0 +1,15 @@
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\bin\Debug\A20  EX01 Yuval 311246581 Aya 311357537.exe
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\bin\Debug\A20  EX01 Yuval 311246581 Aya 311357537.pdb
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\bin\Debug\Facebook.dll
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\A20  Ex02 Yuval 311246581 Aya 311357537.csprojAssemblyReference.cache
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\FormsUI.FilterForm.resources
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\FormsUI.GameForm.resources
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\FormsUI.MainForm.resources
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\FormsUI.WelcomeForm.resources
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\A20__EX01_Yuval_311246581_Aya_311357537.Properties.Resources.resources
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\A20  Ex02 Yuval 311246581 Aya 311357537.csproj.GenerateResource.cache
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\A20  Ex02 Yuval 311246581 Aya 311357537.csproj.CoreCompileInputs.cache
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\A20  Ex02 Yuval 311246581 Aya 311357537.csproj.CopyComplete
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\A20  EX01 Yuval 311246581 Aya 311357537.exe
+C:\Users\yuval\Desktop\DesignPatterns\Design_ex02\‏‏A20 Ex02 YuvalSosmanovich 311246581 AyaHochberg 311357537\A20  EX01 Yuval 311246581 Aya 311357537\obj\Debug\A20  EX01 Yuval 311246581 Aya 311357537.pdb

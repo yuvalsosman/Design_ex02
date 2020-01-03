@@ -250,8 +250,15 @@ namespace FormsUI
 
         private void postSubmit()
         {
-            Status postedStatus = s_LoginUser.PostStatus(textForPost.Text);
-            MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
+            try
+            {
+                Status postedStatus = s_LoginUser.PostStatus(textForPost.Text);
+                MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(String.Format("Somthing went wrong... error message: {0}",e.Message));
+            }
         }
 
         private void startGame()
