@@ -12,7 +12,7 @@ namespace FormsUI.FacebookAppLogic
         private const string k_NoDataToFetchMessage = "No data to retrieve :(";
         private const string k_FetchPerrmissionDenyMessage = "You dont have permmissions for fetching this Item - we are sorry :( , message error: {0}";
         public static User s_LoginUser { get; set; }
-        public static List<User> s_FriendList = new List<User>();
+        public static List<User> s_FriendList { get; set; }
 
         public FacebookObjectCollection<Event> eventList { get; set; }
         public FacebookObjectCollection<User> friendList { get; set; }
@@ -23,18 +23,22 @@ namespace FormsUI.FacebookAppLogic
 
         internal void fetchFriendsList()
         {
+            s_FriendList = new List<User>();
             friendList = new FacebookObjectCollection<User>();
             try
             {
-                foreach (User friend in s_LoginUser.Friends)
-                {
-                    friendList.Add(friend);
-                    s_FriendList.Add(friend);
-                    friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
-                }
                 if (s_LoginUser.Friends.Count == 0)
                 {
                     MessageBox.Show(k_NoDataToFetchMessage);
+                }
+                else
+                {
+                    foreach (User friend in s_LoginUser.Friends)
+                    {
+                        friendList.Add(friend);
+                        s_FriendList.Add(friend);
+                        friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
+                    }
                 }
             }
             catch (Exception e)
@@ -78,26 +82,6 @@ namespace FormsUI.FacebookAppLogic
                     {
                         favoritePicture = photo;
                     }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(String.Format(k_FetchPerrmissionDenyMessage, e.Message));
-            }
-        }
-
-        internal void fetchCheckIn()
-        {
-            checkinList = new FacebookObjectCollection<Checkin>();
-            try
-            {
-                foreach (Checkin checkin in s_LoginUser.Checkins)
-                {
-                    checkinList.Add(checkin);
-                }
-                if (s_LoginUser.Checkins.Count == 0)
-                {
-                    MessageBox.Show(k_NoDataToFetchMessage);
                 }
             }
             catch (Exception e)
@@ -154,7 +138,6 @@ namespace FormsUI.FacebookAppLogic
             fetchFriendsList();
             fetchPosts();
             fetchFavoritePicture();
-            fetchCheckIn();
             fetchPages();
             fetchEvents();
         }

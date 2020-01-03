@@ -32,11 +32,6 @@ namespace FormsUI
             saveAppSettingsBeforeFormClosing();
         }
 
-        private void friendsList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displaySelectedFriend();
-        }
-
         private void linkFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             mainFormFacade.fetchFriendsList();
@@ -53,12 +48,6 @@ namespace FormsUI
         {
             mainFormFacade.fetchFavoritePicture();
             photoBindingSource.DataSource = mainFormFacade.favoritePicture;
-        }
-
-        private void LinkCheckIn_OnClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            mainFormFacade.fetchCheckIn();
-            checkinsBindingSource.DataSource = mainFormFacade.checkinList;
         }
 
         private void LinkPages_OnClick(object sender, LinkLabelLinkClickedEventArgs e)
@@ -100,13 +89,18 @@ namespace FormsUI
             userListBox.SelectedItems.Clear();
         }
 
-        private void eventsList_SelectedIndexChanged(object sender, EventArgs e)
+        private void eventListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (eventListBox.SelectedItems.Count == 1)
             {
                 Event selectedEvent = eventListBox.SelectedItem as Event;
                 pictureBoxEvent.LoadAsync(selectedEvent.PictureNormalURL);
             }
+        }
+
+        private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displaySelectedFriend();
         }
 
         private void postSubmitButton_OnClick(object sender, EventArgs e)
@@ -158,6 +152,7 @@ namespace FormsUI
             s_AppSettings.SaveToFile();
             Application.Exit();
         }
+
 
     }
 }
