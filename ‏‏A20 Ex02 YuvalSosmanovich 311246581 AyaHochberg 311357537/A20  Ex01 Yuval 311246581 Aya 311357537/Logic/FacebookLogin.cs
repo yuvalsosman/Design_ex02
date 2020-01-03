@@ -47,7 +47,7 @@ namespace FormsUI.FacebookAppLogic
                 "publish_pages"
                 );
 
-            MainForm.s_LoginUser = loginResult.LoggedInUser;
+            MainFormFacade.s_LoginUser = loginResult.LoggedInUser;
 
             return loginResult;
         }
@@ -55,7 +55,7 @@ namespace FormsUI.FacebookAppLogic
         private static LoginResult AutoLoginWithCertificates()
         {
             LoginResult loginResult = FacebookService.Connect(MainForm.s_AppSettings.LastAccessToken);
-            MainForm.s_LoginUser = loginResult.LoggedInUser;
+            MainFormFacade.s_LoginUser = loginResult.LoggedInUser;
             MainForm.s_AppSettings.RememberUser = true;
 
             return loginResult;

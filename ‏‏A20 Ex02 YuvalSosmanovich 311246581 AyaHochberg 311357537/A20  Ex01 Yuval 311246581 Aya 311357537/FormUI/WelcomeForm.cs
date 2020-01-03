@@ -62,7 +62,7 @@ namespace FormsUI
             }
             if (loginResult != null)
             {
-                MainForm.s_LoginUser = loginResult.LoggedInUser;
+                MainFormFacade.s_LoginUser = loginResult.LoggedInUser;
                 openMainForm(loginResult);
             }
 
@@ -72,7 +72,7 @@ namespace FormsUI
         private void openMainForm(LoginResult i_LoginResult)
         {
             updateAppSetings(i_LoginResult);
-            MessageBox.Show(String.Format(k_WelcomeMessage, MainForm.s_LoginUser.Name));
+            MessageBox.Show(String.Format(k_WelcomeMessage, MainFormFacade.s_LoginUser.Name));
             MainForm formMain = new MainForm();
             formMain.Show();
             this.Hide();

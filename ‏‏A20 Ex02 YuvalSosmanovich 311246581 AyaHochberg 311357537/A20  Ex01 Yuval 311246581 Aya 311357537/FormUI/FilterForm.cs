@@ -32,7 +32,7 @@ namespace FormsUI
         private void filterFriendList()
         {
             List<User> filteredListOfFreinds = new List<User>();
-            filteredListOfFreinds = FilterFriendsLogic.FilterFriendLists(MainForm.s_FriendList, maleCheckBox, femaleCheckBox, singleStatusCheckBox, relationshipStatusCheckBox, complicatedStatusCheckBox);
+            filteredListOfFreinds = FilterFriendsLogic.FilterFriendLists(MainFormFacade.s_FriendList, maleCheckBox, femaleCheckBox, singleStatusCheckBox, relationshipStatusCheckBox, complicatedStatusCheckBox);
             this.filteredListOfFreinds.Items.Clear();
             this.filteredListOfFreinds.DisplayMember = "Name";
 
@@ -40,7 +40,7 @@ namespace FormsUI
             {
                 MessageBox.Show(k_EmptyFilteredFriendListMessage);
             }
-            if (MainForm.s_FriendList.Count > 0)
+            if (MainFormFacade.s_FriendList.Count > 0)
             {
                 foreach (User friend in filteredListOfFreinds)
                 {

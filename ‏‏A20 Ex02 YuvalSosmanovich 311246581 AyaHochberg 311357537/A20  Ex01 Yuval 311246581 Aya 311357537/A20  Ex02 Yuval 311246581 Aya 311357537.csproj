@@ -79,6 +79,7 @@
     <Compile Include="FormUI\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\MainFormFacade.cs" />
     <Compile Include="Logic\Utils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +104,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Event.datasource" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Photo.datasource" />
+    <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Post.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

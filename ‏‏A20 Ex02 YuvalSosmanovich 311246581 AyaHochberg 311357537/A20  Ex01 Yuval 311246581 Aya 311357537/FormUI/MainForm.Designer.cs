@@ -34,24 +34,18 @@
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label religionLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.friendsList = new System.Windows.Forms.ListBox();
             this.pictureBoxFriends = new System.Windows.Forms.PictureBox();
             this.textForPost = new System.Windows.Forms.TextBox();
             this.postSubmitButton = new System.Windows.Forms.Button();
-            this.postsList = new System.Windows.Forms.ListBox();
             this.linkFriends = new System.Windows.Forms.LinkLabel();
             this.linkPosts = new System.Windows.Forms.LinkLabel();
-            this.mostLikedPicture = new System.Windows.Forms.PictureBox();
             this.linkFavoritePicture = new System.Windows.Forms.LinkLabel();
             this.postStatus = new System.Windows.Forms.Label();
             this.linkEvents = new System.Windows.Forms.LinkLabel();
-            this.eventsList = new System.Windows.Forms.ListBox();
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.pictureBoxSymbol = new System.Windows.Forms.PictureBox();
             this.startGameButton = new System.Windows.Forms.Button();
-            this.checkInList = new System.Windows.Forms.ListBox();
             this.linkCheckIn = new System.Windows.Forms.LinkLabel();
-            this.pagesList = new System.Windows.Forms.ListBox();
             this.linkPages = new System.Windows.Forms.LinkLabel();
             this.logOutButton = new System.Windows.Forms.Button();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -63,18 +57,38 @@
             this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
             this.nameLabel1 = new System.Windows.Forms.Label();
             this.religionLabel1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.languagesListBox = new System.Windows.Forms.ListBox();
+            this.likedPagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkinsListBox = new System.Windows.Forms.ListBox();
+            this.checkinsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.imageNormalPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.photoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userListBox = new System.Windows.Forms.ListBox();
+            this.friendsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.postListBox = new System.Windows.Forms.ListBox();
+            this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eventListBox = new System.Windows.Forms.ListBox();
             birthdayLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             religionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriends)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostLikedPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSymbol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamePhoto)).BeginInit();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.likedPagesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkinsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.friendsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // birthdayLabel
@@ -113,21 +127,9 @@
             religionLabel.TabIndex = 49;
             religionLabel.Text = "Religion:";
             // 
-            // friendsList
-            // 
-            this.friendsList.BackColor = System.Drawing.Color.SkyBlue;
-            this.friendsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.friendsList.FormattingEnabled = true;
-            this.friendsList.ItemHeight = 20;
-            this.friendsList.Location = new System.Drawing.Point(421, 285);
-            this.friendsList.Name = "friendsList";
-            this.friendsList.Size = new System.Drawing.Size(248, 182);
-            this.friendsList.TabIndex = 3;
-            this.friendsList.SelectedIndexChanged += new System.EventHandler(this.friendsList_SelectedIndexChanged);
-            // 
             // pictureBoxFriends
             // 
-            this.pictureBoxFriends.Location = new System.Drawing.Point(675, 283);
+            this.pictureBoxFriends.Location = new System.Drawing.Point(682, 35);
             this.pictureBoxFriends.Name = "pictureBoxFriends";
             this.pictureBoxFriends.Size = new System.Drawing.Size(129, 134);
             this.pictureBoxFriends.TabIndex = 4;
@@ -135,7 +137,7 @@
             // 
             // textForPost
             // 
-            this.textForPost.Location = new System.Drawing.Point(675, 39);
+            this.textForPost.Location = new System.Drawing.Point(666, 57);
             this.textForPost.Name = "textForPost";
             this.textForPost.Size = new System.Drawing.Size(311, 26);
             this.textForPost.TabIndex = 5;
@@ -144,7 +146,7 @@
             // 
             this.postSubmitButton.BackColor = System.Drawing.Color.DimGray;
             this.postSubmitButton.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postSubmitButton.Location = new System.Drawing.Point(992, 33);
+            this.postSubmitButton.Location = new System.Drawing.Point(983, 47);
             this.postSubmitButton.Name = "postSubmitButton";
             this.postSubmitButton.Size = new System.Drawing.Size(99, 36);
             this.postSubmitButton.TabIndex = 6;
@@ -152,23 +154,12 @@
             this.postSubmitButton.UseVisualStyleBackColor = false;
             this.postSubmitButton.Click += new System.EventHandler(this.postSubmitButton_OnClick);
             // 
-            // postsList
-            // 
-            this.postsList.BackColor = System.Drawing.Color.SkyBlue;
-            this.postsList.DisplayMember = "Message";
-            this.postsList.FormattingEnabled = true;
-            this.postsList.ItemHeight = 20;
-            this.postsList.Location = new System.Drawing.Point(31, 283);
-            this.postsList.Name = "postsList";
-            this.postsList.Size = new System.Drawing.Size(384, 184);
-            this.postsList.TabIndex = 8;
-            // 
             // linkFriends
             // 
             this.linkFriends.AutoSize = true;
             this.linkFriends.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkFriends.LinkColor = System.Drawing.Color.White;
-            this.linkFriends.Location = new System.Drawing.Point(417, 257);
+            this.linkFriends.Location = new System.Drawing.Point(438, 9);
             this.linkFriends.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkFriends.Name = "linkFriends";
             this.linkFriends.Size = new System.Drawing.Size(132, 23);
@@ -182,7 +173,7 @@
             this.linkPosts.AutoSize = true;
             this.linkPosts.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkPosts.LinkColor = System.Drawing.Color.White;
-            this.linkPosts.Location = new System.Drawing.Point(27, 257);
+            this.linkPosts.Location = new System.Drawing.Point(5, 9);
             this.linkPosts.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkPosts.Name = "linkPosts";
             this.linkPosts.Size = new System.Drawing.Size(114, 23);
@@ -191,22 +182,12 @@
             this.linkPosts.Text = "Fetch Posts ➔";
             this.linkPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPosts_LinkClicked);
             // 
-            // mostLikedPicture
-            // 
-            this.mostLikedPicture.Location = new System.Drawing.Point(810, 728);
-            this.mostLikedPicture.Margin = new System.Windows.Forms.Padding(2);
-            this.mostLikedPicture.Name = "mostLikedPicture";
-            this.mostLikedPicture.Size = new System.Drawing.Size(273, 308);
-            this.mostLikedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mostLikedPicture.TabIndex = 14;
-            this.mostLikedPicture.TabStop = false;
-            // 
             // linkFavoritePicture
             // 
             this.linkFavoritePicture.AutoSize = true;
             this.linkFavoritePicture.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkFavoritePicture.LinkColor = System.Drawing.Color.White;
-            this.linkFavoritePicture.Location = new System.Drawing.Point(808, 703);
+            this.linkFavoritePicture.Location = new System.Drawing.Point(681, 514);
             this.linkFavoritePicture.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkFavoritePicture.Name = "linkFavoritePicture";
             this.linkFavoritePicture.Size = new System.Drawing.Size(199, 23);
@@ -220,7 +201,7 @@
             this.postStatus.AutoSize = true;
             this.postStatus.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.postStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.postStatus.Location = new System.Drawing.Point(671, 13);
+            this.postStatus.Location = new System.Drawing.Point(662, 31);
             this.postStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.postStatus.Name = "postStatus";
             this.postStatus.Size = new System.Drawing.Size(109, 23);
@@ -232,7 +213,7 @@
             this.linkEvents.AutoSize = true;
             this.linkEvents.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkEvents.LinkColor = System.Drawing.Color.White;
-            this.linkEvents.Location = new System.Drawing.Point(419, 485);
+            this.linkEvents.Location = new System.Drawing.Point(445, 253);
             this.linkEvents.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkEvents.Name = "linkEvents";
             this.linkEvents.Size = new System.Drawing.Size(125, 23);
@@ -241,20 +222,9 @@
             this.linkEvents.Text = "Fetch Events ➔";
             this.linkEvents.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEvents_LinkClicked);
             // 
-            // eventsList
-            // 
-            this.eventsList.BackColor = System.Drawing.Color.SkyBlue;
-            this.eventsList.FormattingEnabled = true;
-            this.eventsList.ItemHeight = 20;
-            this.eventsList.Location = new System.Drawing.Point(421, 510);
-            this.eventsList.Margin = new System.Windows.Forms.Padding(2);
-            this.eventsList.Name = "eventsList";
-            this.eventsList.Size = new System.Drawing.Size(250, 184);
-            this.eventsList.TabIndex = 20;
-            // 
             // pictureBoxEvent
             // 
-            this.pictureBoxEvent.Location = new System.Drawing.Point(675, 510);
+            this.pictureBoxEvent.Location = new System.Drawing.Point(682, 278);
             this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxEvent.Name = "pictureBoxEvent";
             this.pictureBoxEvent.Size = new System.Drawing.Size(129, 111);
@@ -278,33 +248,22 @@
             this.startGameButton.BackColor = System.Drawing.Color.Gold;
             this.startGameButton.Font = new System.Drawing.Font("Comic Sans MS", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startGameButton.ForeColor = System.Drawing.Color.Black;
-            this.startGameButton.Location = new System.Drawing.Point(31, 728);
+            this.startGameButton.Location = new System.Drawing.Point(9, 514);
             this.startGameButton.Margin = new System.Windows.Forms.Padding(2);
             this.startGameButton.Name = "startGameButton";
-            this.startGameButton.Size = new System.Drawing.Size(638, 53);
+            this.startGameButton.Size = new System.Drawing.Size(651, 53);
             this.startGameButton.TabIndex = 36;
             this.startGameButton.Text = "Click here and start playing";
             this.startGameButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.startGameButton.UseVisualStyleBackColor = false;
             this.startGameButton.Click += new System.EventHandler(this.startGameButton_OnClick);
             // 
-            // checkInList
-            // 
-            this.checkInList.BackColor = System.Drawing.Color.SkyBlue;
-            this.checkInList.FormattingEnabled = true;
-            this.checkInList.ItemHeight = 20;
-            this.checkInList.Location = new System.Drawing.Point(810, 510);
-            this.checkInList.Margin = new System.Windows.Forms.Padding(2);
-            this.checkInList.Name = "checkInList";
-            this.checkInList.Size = new System.Drawing.Size(258, 184);
-            this.checkInList.TabIndex = 36;
-            // 
             // linkCheckIn
             // 
             this.linkCheckIn.AutoSize = true;
             this.linkCheckIn.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkCheckIn.LinkColor = System.Drawing.Color.White;
-            this.linkCheckIn.Location = new System.Drawing.Point(811, 485);
+            this.linkCheckIn.Location = new System.Drawing.Point(868, 253);
             this.linkCheckIn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkCheckIn.Name = "linkCheckIn";
             this.linkCheckIn.Size = new System.Drawing.Size(140, 23);
@@ -313,23 +272,12 @@
             this.linkCheckIn.Text = "Fetch Checkins ➔";
             this.linkCheckIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkCheckIn_OnClick);
             // 
-            // pagesList
-            // 
-            this.pagesList.BackColor = System.Drawing.Color.SkyBlue;
-            this.pagesList.FormattingEnabled = true;
-            this.pagesList.ItemHeight = 20;
-            this.pagesList.Location = new System.Drawing.Point(31, 510);
-            this.pagesList.Margin = new System.Windows.Forms.Padding(2);
-            this.pagesList.Name = "pagesList";
-            this.pagesList.Size = new System.Drawing.Size(384, 184);
-            this.pagesList.TabIndex = 38;
-            // 
             // linkPages
             // 
             this.linkPages.AutoSize = true;
             this.linkPages.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkPages.LinkColor = System.Drawing.Color.White;
-            this.linkPages.Location = new System.Drawing.Point(27, 485);
+            this.linkPages.Location = new System.Drawing.Point(5, 253);
             this.linkPages.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkPages.Name = "linkPages";
             this.linkPages.Size = new System.Drawing.Size(161, 23);
@@ -366,9 +314,9 @@
             // 
             this.gamePhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePhoto.Image = ((System.Drawing.Image)(resources.GetObject("gamePhoto.Image")));
-            this.gamePhoto.Location = new System.Drawing.Point(31, 728);
+            this.gamePhoto.Location = new System.Drawing.Point(9, 514);
             this.gamePhoto.Name = "gamePhoto";
-            this.gamePhoto.Size = new System.Drawing.Size(640, 304);
+            this.gamePhoto.Size = new System.Drawing.Size(651, 271);
             this.gamePhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gamePhoto.TabIndex = 44;
             this.gamePhoto.TabStop = false;
@@ -440,36 +388,143 @@
             this.religionLabel1.TabIndex = 50;
             this.religionLabel1.Text = "label1";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.eventListBox);
+            this.panel1.Controls.Add(this.languagesListBox);
+            this.panel1.Controls.Add(this.checkinsListBox);
+            this.panel1.Controls.Add(this.imageNormalPictureBox1);
+            this.panel1.Controls.Add(this.userListBox);
+            this.panel1.Controls.Add(this.startGameButton);
+            this.panel1.Controls.Add(this.gamePhoto);
+            this.panel1.Controls.Add(this.postListBox);
+            this.panel1.Controls.Add(this.linkPages);
+            this.panel1.Controls.Add(this.linkPosts);
+            this.panel1.Controls.Add(this.linkFriends);
+            this.panel1.Controls.Add(this.linkFavoritePicture);
+            this.panel1.Controls.Add(this.pictureBoxEvent);
+            this.panel1.Controls.Add(this.linkCheckIn);
+            this.panel1.Controls.Add(this.pictureBoxFriends);
+            this.panel1.Controls.Add(this.linkEvents);
+            this.panel1.Location = new System.Drawing.Point(120, 240);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1204, 805);
+            this.panel1.TabIndex = 46;
+            // 
+            // languagesListBox
+            // 
+            this.languagesListBox.BackColor = System.Drawing.Color.SkyBlue;
+            this.languagesListBox.DataSource = this.likedPagesBindingSource;
+            this.languagesListBox.DisplayMember = "Name";
+            this.languagesListBox.FormattingEnabled = true;
+            this.languagesListBox.ItemHeight = 20;
+            this.languagesListBox.Location = new System.Drawing.Point(9, 279);
+            this.languagesListBox.Name = "languagesListBox";
+            this.languagesListBox.Size = new System.Drawing.Size(413, 204);
+            this.languagesListBox.TabIndex = 44;
+            this.languagesListBox.ValueMember = "AccessToken";
+            // 
+            // likedPagesBindingSource
+            // 
+            this.likedPagesBindingSource.DataMember = "LikedPages";
+            // 
+            // checkinsListBox
+            // 
+            this.checkinsListBox.BackColor = System.Drawing.Color.SkyBlue;
+            this.checkinsListBox.DataSource = this.checkinsBindingSource;
+            this.checkinsListBox.DisplayMember = "Name";
+            this.checkinsListBox.FormattingEnabled = true;
+            this.checkinsListBox.ItemHeight = 20;
+            this.checkinsListBox.Location = new System.Drawing.Point(872, 278);
+            this.checkinsListBox.Name = "checkinsListBox";
+            this.checkinsListBox.Size = new System.Drawing.Size(248, 204);
+            this.checkinsListBox.TabIndex = 44;
+            this.checkinsListBox.ValueMember = "Caption";
+            // 
+            // checkinsBindingSource
+            // 
+            this.checkinsBindingSource.DataMember = "Checkins";
+            // 
+            // imageNormalPictureBox1
+            // 
+            this.imageNormalPictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.photoBindingSource, "ImageNormal", true));
+            this.imageNormalPictureBox1.Location = new System.Drawing.Point(685, 549);
+            this.imageNormalPictureBox1.Name = "imageNormalPictureBox1";
+            this.imageNormalPictureBox1.Size = new System.Drawing.Size(198, 224);
+            this.imageNormalPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageNormalPictureBox1.TabIndex = 13;
+            this.imageNormalPictureBox1.TabStop = false;
+            // 
+            // photoBindingSource
+            // 
+            this.photoBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Photo);
+            // 
+            // userListBox
+            // 
+            this.userListBox.BackColor = System.Drawing.Color.SkyBlue;
+            this.userListBox.DataSource = this.friendsBindingSource;
+            this.userListBox.DisplayMember = "Name";
+            this.userListBox.FormattingEnabled = true;
+            this.userListBox.ItemHeight = 20;
+            this.userListBox.Location = new System.Drawing.Point(442, 35);
+            this.userListBox.Name = "userListBox";
+            this.userListBox.Size = new System.Drawing.Size(234, 204);
+            this.userListBox.TabIndex = 1;
+            this.userListBox.ValueMember = "About";
+            // 
+            // friendsBindingSource
+            // 
+            this.friendsBindingSource.DataMember = "Friends";
+            this.friendsBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.User);
+            // 
+            // postListBox
+            // 
+            this.postListBox.BackColor = System.Drawing.Color.SkyBlue;
+            this.postListBox.DataSource = this.postBindingSource;
+            this.postListBox.DisplayMember = "Description";
+            this.postListBox.FormattingEnabled = true;
+            this.postListBox.ItemHeight = 20;
+            this.postListBox.Location = new System.Drawing.Point(9, 35);
+            this.postListBox.Name = "postListBox";
+            this.postListBox.Size = new System.Drawing.Size(413, 204);
+            this.postListBox.TabIndex = 1;
+            this.postListBox.ValueMember = "Caption";
+            // 
+            // postBindingSource
+            // 
+            this.postBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Post);
+            // 
+            // eventBindingSource
+            // 
+            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
+            // 
+            // eventListBox
+            // 
+            this.eventListBox.BackColor = System.Drawing.Color.SkyBlue;
+            this.eventListBox.DataSource = this.eventBindingSource;
+            this.eventListBox.DisplayMember = "Name";
+            this.eventListBox.FormattingEnabled = true;
+            this.eventListBox.ItemHeight = 20;
+            this.eventListBox.Location = new System.Drawing.Point(449, 278);
+            this.eventListBox.Name = "eventListBox";
+            this.eventListBox.Size = new System.Drawing.Size(226, 204);
+            this.eventListBox.TabIndex = 44;
+            this.eventListBox.ValueMember = "AttendingUsers";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.ClientSize = new System.Drawing.Size(1164, 1036);
+            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelInfo);
-            this.Controls.Add(this.startGameButton);
-            this.Controls.Add(this.linkPages);
-            this.Controls.Add(this.pagesList);
-            this.Controls.Add(this.linkCheckIn);
-            this.Controls.Add(this.checkInList);
             this.Controls.Add(this.pictureBoxSymbol);
-            this.Controls.Add(this.gamePhoto);
-            this.Controls.Add(this.pictureBoxEvent);
-            this.Controls.Add(this.eventsList);
-            this.Controls.Add(this.linkEvents);
             this.Controls.Add(this.postStatus);
-            this.Controls.Add(this.linkFavoritePicture);
-            this.Controls.Add(this.mostLikedPicture);
-            this.Controls.Add(this.linkPosts);
-            this.Controls.Add(this.linkFriends);
-            this.Controls.Add(this.postsList);
             this.Controls.Add(this.postSubmitButton);
             this.Controls.Add(this.textForPost);
-            this.Controls.Add(this.pictureBoxFriends);
-            this.Controls.Add(this.friendsList);
             this.Name = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriends)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostLikedPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSymbol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamePhoto)).EndInit();
@@ -477,30 +532,33 @@
             this.panelInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.likedPagesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkinsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.friendsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ListBox friendsList;
         private System.Windows.Forms.PictureBox pictureBoxFriends;
         private System.Windows.Forms.TextBox textForPost;
         private System.Windows.Forms.Button postSubmitButton;
-        private System.Windows.Forms.ListBox postsList;
         private System.Windows.Forms.LinkLabel linkFriends;
         private System.Windows.Forms.LinkLabel linkPosts;
-        private System.Windows.Forms.PictureBox mostLikedPicture;
         private System.Windows.Forms.LinkLabel linkFavoritePicture;
         private System.Windows.Forms.Label postStatus;
         private System.Windows.Forms.LinkLabel linkEvents;
-        private System.Windows.Forms.ListBox eventsList;
         private System.Windows.Forms.PictureBox pictureBoxEvent;
         private System.Windows.Forms.PictureBox pictureBoxSymbol;
         private System.Windows.Forms.Button startGameButton;
-        private System.Windows.Forms.ListBox checkInList;
         private System.Windows.Forms.LinkLabel linkCheckIn;
-        private System.Windows.Forms.ListBox pagesList;
         private System.Windows.Forms.LinkLabel linkPages;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Label descriptionLabel;
@@ -512,6 +570,19 @@
         private System.Windows.Forms.PictureBox imageNormalPictureBox;
         private System.Windows.Forms.Label nameLabel1;
         private System.Windows.Forms.Label religionLabel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox postListBox;
+        private System.Windows.Forms.BindingSource postBindingSource;
+        private System.Windows.Forms.ListBox userListBox;
+        private System.Windows.Forms.BindingSource friendsBindingSource;
+        private System.Windows.Forms.BindingSource photoBindingSource;
+        private System.Windows.Forms.PictureBox imageNormalPictureBox1;
+        private System.Windows.Forms.ListBox checkinsListBox;
+        private System.Windows.Forms.BindingSource checkinsBindingSource;
+        private System.Windows.Forms.ListBox languagesListBox;
+        private System.Windows.Forms.BindingSource likedPagesBindingSource;
+        private System.Windows.Forms.ListBox eventListBox;
+        private System.Windows.Forms.BindingSource eventBindingSource;
     }
 }
 

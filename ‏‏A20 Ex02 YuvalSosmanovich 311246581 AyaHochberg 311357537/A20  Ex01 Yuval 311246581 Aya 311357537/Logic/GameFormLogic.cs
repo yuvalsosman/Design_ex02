@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace FormsUI.FacebookAppLogic
 {
-    public sealed class GameFormLogic
+    internal sealed class GameFormLogic
     {
         private const int r_NumberOfNameToRandom = 5;
         private static Random s_RandomUserGuess = new Random();
         private List<string> m_RandomNamesToChoose = new List<string>();
         private string m_PrevUserNameToGuess;
         private string m_CurrentNameToGuess;
-        private int m_NumberOfFriends = MainForm.s_FriendList.Count;
+        private int m_NumberOfFriends = MainFormFacade.s_FriendList.Count;
 
         public List<string> CreateListOfOptionFromFriendsList()
         {
@@ -22,7 +22,7 @@ namespace FormsUI.FacebookAppLogic
             while (m_RandomNamesToChoose.Count < numberOfNameToRandom)
             {
                 randomNumber = s_RandomUserGuess.Next(m_NumberOfFriends);
-                string randomName = MainForm.s_FriendList[randomNumber].Name;
+                string randomName = MainFormFacade.s_FriendList[randomNumber].Name;
                 if (!m_RandomNamesToChoose.Contains(randomName))
                 {
                     m_RandomNamesToChoose.Add(randomName);
@@ -40,7 +40,7 @@ namespace FormsUI.FacebookAppLogic
 
             while (currentUserNameToGuess == m_PrevUserNameToGuess)
             {
-                currentUserToGuess = MainForm.s_FriendList[randomNumber];
+                currentUserToGuess = MainFormFacade.s_FriendList[randomNumber];
                 currentUserNameToGuess = currentUserToGuess.Name;
                 randomNumber = s_RandomUserGuess.Next(m_NumberOfFriends);
             }
