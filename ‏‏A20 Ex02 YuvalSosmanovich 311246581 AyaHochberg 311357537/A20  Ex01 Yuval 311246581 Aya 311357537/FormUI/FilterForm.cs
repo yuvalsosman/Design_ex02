@@ -18,13 +18,12 @@ namespace FormsUI
         private const string k_EmptyFilteredFriendListMessage = "Your filtered friend list is empty, please change you filterparameters:)";
         private const string k_FetchBeforeFilterMessage = "You dont have friends in you friend list , please try to fecth firends to your friend list first and than try to filter again...";
 
-
         public FilterForm()
         {
             InitializeComponent();
         }
 
-        private void filterSubmitButton_OnClick(object sender, EventArgs e)
+        private void filterSubmitButton_Click(object sender, EventArgs e)
         {
             filterFriendList();
         }
@@ -53,7 +52,6 @@ namespace FormsUI
                 MessageBox.Show(k_FetchBeforeFilterMessage);
             }
         }
-
 
     }
 }

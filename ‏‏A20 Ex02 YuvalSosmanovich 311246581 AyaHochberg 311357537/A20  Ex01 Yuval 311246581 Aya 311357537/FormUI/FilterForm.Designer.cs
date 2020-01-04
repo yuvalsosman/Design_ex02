@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.descriptionLabel2 = new System.Windows.Forms.Label();
+            this.filteredListOfFreinds = new System.Windows.Forms.ListBox();
             this.filterSubmitButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.genderLabel = new System.Windows.Forms.Label();
@@ -38,8 +40,6 @@
             this.singleStatusCheckBox = new System.Windows.Forms.CheckBox();
             this.femaleCheckBox = new System.Windows.Forms.CheckBox();
             this.maleCheckBox = new System.Windows.Forms.CheckBox();
-            this.descriptionLabel2 = new System.Windows.Forms.Label();
-            this.filteredListOfFreinds = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,27 @@
             this.panel1.Size = new System.Drawing.Size(625, 382);
             this.panel1.TabIndex = 0;
             // 
+            // descriptionLabel2
+            // 
+            this.descriptionLabel2.AutoSize = true;
+            this.descriptionLabel2.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel2.ForeColor = System.Drawing.Color.White;
+            this.descriptionLabel2.Location = new System.Drawing.Point(320, 24);
+            this.descriptionLabel2.Name = "descriptionLabel2";
+            this.descriptionLabel2.Size = new System.Drawing.Size(151, 23);
+            this.descriptionLabel2.TabIndex = 46;
+            this.descriptionLabel2.Text = "Filtered FreindList";
+            // 
+            // filteredListOfFreinds
+            // 
+            this.filteredListOfFreinds.BackColor = System.Drawing.Color.SkyBlue;
+            this.filteredListOfFreinds.FormattingEnabled = true;
+            this.filteredListOfFreinds.ItemHeight = 20;
+            this.filteredListOfFreinds.Location = new System.Drawing.Point(319, 50);
+            this.filteredListOfFreinds.Name = "filteredListOfFreinds";
+            this.filteredListOfFreinds.Size = new System.Drawing.Size(282, 304);
+            this.filteredListOfFreinds.TabIndex = 45;
+            // 
             // filterSubmitButton
             // 
             this.filterSubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -71,6 +92,7 @@
             this.filterSubmitButton.TabIndex = 44;
             this.filterSubmitButton.Text = "FILTER ➔";
             this.filterSubmitButton.UseVisualStyleBackColor = false;
+            this.filterSubmitButton.Click += new System.EventHandler(this.filterSubmitButton_Click);
             // 
             // statusLabel
             // 
@@ -156,27 +178,6 @@
             this.maleCheckBox.TabIndex = 36;
             this.maleCheckBox.Text = "Male";
             this.maleCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // descriptionLabel2
-            // 
-            this.descriptionLabel2.AutoSize = true;
-            this.descriptionLabel2.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel2.ForeColor = System.Drawing.Color.White;
-            this.descriptionLabel2.Location = new System.Drawing.Point(320, 24);
-            this.descriptionLabel2.Name = "descriptionLabel2";
-            this.descriptionLabel2.Size = new System.Drawing.Size(151, 23);
-            this.descriptionLabel2.TabIndex = 46;
-            this.descriptionLabel2.Text = "Filtered FreindList";
-            // 
-            // filteredListOfFreinds
-            // 
-            this.filteredListOfFreinds.BackColor = System.Drawing.Color.SkyBlue;
-            this.filteredListOfFreinds.FormattingEnabled = true;
-            this.filteredListOfFreinds.ItemHeight = 20;
-            this.filteredListOfFreinds.Location = new System.Drawing.Point(319, 50);
-            this.filteredListOfFreinds.Name = "filteredListOfFreinds";
-            this.filteredListOfFreinds.Size = new System.Drawing.Size(282, 304);
-            this.filteredListOfFreinds.TabIndex = 45;
             // 
             // FilterForm
             // 
