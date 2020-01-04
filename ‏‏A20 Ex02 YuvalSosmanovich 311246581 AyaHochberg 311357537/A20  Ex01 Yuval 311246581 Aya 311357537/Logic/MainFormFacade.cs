@@ -136,14 +136,5 @@ namespace FormsUI.FacebookAppLogic
             }
         }
 
-        internal void fetchAll()
-        {
-            fetchFriendsList();
-            fetchPosts();
-            fetchFavoritePicture();
-            fetchPages();
-            fetchEvents();
-        }
-
     }
 }

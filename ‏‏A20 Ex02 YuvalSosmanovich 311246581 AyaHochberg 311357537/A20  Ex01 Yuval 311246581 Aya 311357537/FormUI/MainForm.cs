@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FormsUI.FacebookAppLogic;
@@ -34,43 +35,66 @@ namespace FormsUI
 
         private void fetchAllDataButton_Click(object sender, EventArgs e)
         {
-            mainFormFacade.fetchAll();
-            friendsBindingSource.DataSource = mainFormFacade.friendList;
-            postBindingSource.DataSource = mainFormFacade.postsList;
-            photoBindingSource.DataSource = mainFormFacade.favoritePicture;
-            likedPagesBindingSource.DataSource = mainFormFacade.pagesList;
-            eventBindingSource.DataSource = mainFormFacade.eventList;
-
+            new Thread(fetchFriendsInNewThread).Start();
+            new Thread(fetchPostsInNewThread).Start();
+            new Thread(fetchFavoritePictureInNewThread).Start();
+            new Thread(fetchPagesInNewThread).Start();
+            new Thread(fetchEventsInNewThread).Start();
         }
 
-        private void linkFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void fetchFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new Thread(fetchFriendsInNewThread).Start();
+        }
+
+        private void fetchFriendsInNewThread()
         {
             mainFormFacade.fetchFriendsList();
-            friendsBindingSource.DataSource = mainFormFacade.friendList;
+            Invoke(new Action(() => friendsBindingSource.DataSource = mainFormFacade.friendList));
         }
 
-        private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void fetchPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new Thread(fetchPostsInNewThread).Start();
+        }
+
+        private void fetchPostsInNewThread()
         {
             mainFormFacade.fetchPosts();
-            postBindingSource.DataSource = mainFormFacade.postsList;
+            Invoke(new Action(() => postBindingSource.DataSource = mainFormFacade.postsList));
         }
 
-        private void linkFavoritePicture_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void fetchFavoritePicture_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new Thread(fetchFavoritePictureInNewThread).Start();
+        }
+
+        private void fetchFavoritePictureInNewThread()
         {
             mainFormFacade.fetchFavoritePicture();
-            photoBindingSource.DataSource = mainFormFacade.favoritePicture;
+            Invoke(new Action(() => photoBindingSource.DataSource = mainFormFacade.favoritePicture));
         }
 
         private void LinkPages_OnClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            new Thread(fetchPagesInNewThread).Start();
+        }
+
+        private void fetchPagesInNewThread()
+        {
             mainFormFacade.fetchPages();
-            likedPagesBindingSource.DataSource = mainFormFacade.pagesList;
+            Invoke(new Action(() => likedPagesBindingSource.DataSource = mainFormFacade.pagesList));
         }
 
         private void linkEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            new Thread(fetchEventsInNewThread).Start();
+        }
+
+        private void fetchEventsInNewThread()
+        {
             mainFormFacade.fetchEvents();
-            eventBindingSource.DataSource = mainFormFacade.eventList;
+            Invoke(new Action(() => eventBindingSource.DataSource = mainFormFacade.eventList));
         }
 
         private void startGameButton_OnClick(object sender, EventArgs e)

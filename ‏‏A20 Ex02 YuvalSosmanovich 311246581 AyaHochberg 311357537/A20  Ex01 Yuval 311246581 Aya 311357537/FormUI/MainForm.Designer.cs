@@ -166,7 +166,7 @@
             this.linkFriends.TabIndex = 10;
             this.linkFriends.TabStop = true;
             this.linkFriends.Text = "Fetch Friends ➔";
-            this.linkFriends.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFriends_LinkClicked);
+            this.linkFriends.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fetchFriends_LinkClicked);
             // 
             // linkPosts
             // 
@@ -180,7 +180,7 @@
             this.linkPosts.TabIndex = 12;
             this.linkPosts.TabStop = true;
             this.linkPosts.Text = "Fetch Posts ➔";
-            this.linkPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPosts_LinkClicked);
+            this.linkPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fetchPosts_LinkClicked);
             // 
             // linkFavoritePicture
             // 
@@ -194,7 +194,7 @@
             this.linkFavoritePicture.TabIndex = 16;
             this.linkFavoritePicture.TabStop = true;
             this.linkFavoritePicture.Text = "My Most Liked Picture ➔";
-            this.linkFavoritePicture.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFavoritePicture_LinkClicked);
+            this.linkFavoritePicture.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fetchFavoritePicture_LinkClicked);
             // 
             // postStatus
             // 
