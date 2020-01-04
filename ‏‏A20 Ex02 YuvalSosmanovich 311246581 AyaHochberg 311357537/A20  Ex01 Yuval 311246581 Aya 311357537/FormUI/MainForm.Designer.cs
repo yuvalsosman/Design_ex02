@@ -67,6 +67,8 @@
             this.friendsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postListBox = new System.Windows.Forms.ListBox();
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.filterFriendButton = new System.Windows.Forms.Button();
             birthdayLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -85,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.photoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // birthdayLabel
@@ -456,7 +459,6 @@
             // 
             // friendsBindingSource
             // 
-            this.friendsBindingSource.DataMember = "Friends";
             this.friendsBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.User);
             // 
             // postListBox
@@ -476,12 +478,36 @@
             // 
             this.postBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Post);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(575, 93);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(59, 56);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
+            // 
+            // filterFriendButton
+            // 
+            this.filterFriendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.filterFriendButton.Location = new System.Drawing.Point(634, 92);
+            this.filterFriendButton.Name = "filterFriendButton";
+            this.filterFriendButton.Size = new System.Drawing.Size(146, 57);
+            this.filterFriendButton.TabIndex = 48;
+            this.filterFriendButton.Text = "Find A Match";
+            this.filterFriendButton.UseVisualStyleBackColor = false;
+            this.filterFriendButton.Click += new System.EventHandler(this.filterFriendButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.ClientSize = new System.Drawing.Size(1066, 1050);
+            this.Controls.Add(this.filterFriendButton);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.pictureBoxSymbol);
@@ -505,6 +531,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.photoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,6 +571,8 @@
         private System.Windows.Forms.BindingSource likedPagesBindingSource;
         private System.Windows.Forms.ListBox eventListBox;
         private System.Windows.Forms.BindingSource eventBindingSource;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button filterFriendButton;
     }
 }
 

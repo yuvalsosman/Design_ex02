@@ -123,12 +123,28 @@ namespace FormsUI
 
         private void startGame()
         {
-            if (mainFormFacade.friendList.Count > 0)
+            if (MainFormFacade.s_FriendList.Count > 0)
             {
                 Form gameForm = formFactory.createForm(Utils.eFormName.Game);
                 if (gameForm != null)
                 {
                     gameForm.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show(MainFormFacade.k_EmptyFriendListMessage);
+            }
+        }
+
+        private void filterFriendButton_Click(object sender, EventArgs e)
+        {
+            if (MainFormFacade.s_FriendList.Count > 0)
+            {
+                Form filterForm = formFactory.createForm(Utils.eFormName.Filter);
+                if (filterForm != null)
+                {
+                    filterForm.Show();
                 }
             }
             else
@@ -153,6 +169,6 @@ namespace FormsUI
             Application.Exit();
         }
 
-
+      
     }
 }

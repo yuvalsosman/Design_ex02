@@ -8,18 +8,22 @@ namespace FormsUI.FacebookAppLogic
 {
     internal class MainFormFacade
     {
-        internal const string k_EmptyFriendListMessage = "Your friend list is empty, please return to the main page and fetch friend list:)";
         private const string k_NoDataToFetchMessage = "No data to retrieve :(";
         private const string k_FetchPerrmissionDenyMessage = "You dont have permmissions for fetching this Item - we are sorry :( , message error: {0}";
-        public static User s_LoginUser { get; set; }
-        public static List<User> s_FriendList { get; set; }
+        internal const string k_EmptyFriendListMessage = "Your friend list is empty, please return to the main page and fetch friend list:)";
+        internal static User s_LoginUser { get; set; }
+        internal static List<User> s_FriendList { get; set; }
+        internal FacebookObjectCollection<Event> eventList { get; set; }
+        internal FacebookObjectCollection<User> friendList { get; set; }
+        internal FacebookObjectCollection<Post> postsList { get; set; }
+        internal FacebookObjectCollection<Checkin> checkinList { get; set; }
+        internal FacebookObjectCollection<Page> pagesList { get; set; }
+        internal Photo favoritePicture { get; set; }
 
-        public FacebookObjectCollection<Event> eventList { get; set; }
-        public FacebookObjectCollection<User> friendList { get; set; }
-        public FacebookObjectCollection<Post> postsList { get; set; }
-        public FacebookObjectCollection<Checkin> checkinList { get; set; }
-        public FacebookObjectCollection<Page> pagesList { get; set; }
-        public Photo favoritePicture { get; set; }
+        internal MainFormFacade()
+        {
+            s_FriendList = new List<User>();
+        }
 
         internal void fetchFriendsList()
         {
