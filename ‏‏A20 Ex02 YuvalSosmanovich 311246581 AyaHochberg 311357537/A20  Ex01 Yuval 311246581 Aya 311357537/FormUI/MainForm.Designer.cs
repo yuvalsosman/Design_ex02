@@ -504,9 +504,9 @@
             // fetchAllDataButton
             // 
             this.fetchAllDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.fetchAllDataButton.Location = new System.Drawing.Point(56, 252);
+            this.fetchAllDataButton.Location = new System.Drawing.Point(45, 265);
             this.fetchAllDataButton.Name = "fetchAllDataButton";
-            this.fetchAllDataButton.Size = new System.Drawing.Size(62, 76);
+            this.fetchAllDataButton.Size = new System.Drawing.Size(73, 76);
             this.fetchAllDataButton.TabIndex = 49;
             this.fetchAllDataButton.Text = "Fetch All Data";
             this.fetchAllDataButton.UseVisualStyleBackColor = false;
