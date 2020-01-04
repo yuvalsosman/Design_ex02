@@ -136,7 +136,6 @@ namespace FormsUI.FacebookAppLogic
             }
         }
 
-        //TODO: CALL FETCH ALL WITH NEW BUTTON
         internal void fetchAll()
         {
             fetchFriendsList();

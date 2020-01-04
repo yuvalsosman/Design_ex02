@@ -1,20 +1,13 @@
 ﻿using FacebookWrapper.ObjectModel;
-using FormsUI;
 using FormsUI.FacebookAppLogic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FormsUI
 {
     public partial class FilterForm : Form
     {
-
         private const string k_EmptyFilteredFriendListMessage = "Your filtered friend list is empty, please change you filterparameters:)";
         private const string k_FetchBeforeFilterMessage = "You dont have friends in you friend list , please try to fecth firends to your friend list first and than try to filter again...";
 
@@ -26,6 +19,11 @@ namespace FormsUI
         private void filterSubmitButton_Click(object sender, EventArgs e)
         {
             filterFriendList();
+        }
+
+        private void filteredListOfFreinds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayMatchPicture();
         }
 
         private void filterFriendList()
@@ -53,5 +51,21 @@ namespace FormsUI
             }
         }
 
+        private void DisplayMatchPicture()
+        {
+            if (filteredListOfFreinds.SelectedItems.Count == 1)
+            {
+                User selectedFriend = filteredListOfFreinds.SelectedItem as User;
+                if (selectedFriend.PictureNormalURL != null)
+                {
+                    matchPictureBox.LoadAsync(selectedFriend.PictureNormalURL);
+                }
+                else
+                {
+                    matchPictureBox.Image = matchPictureBox.ErrorImage;
+                }
+            }
+            filteredListOfFreinds.SelectedItems.Clear();
+        }
     }
 }

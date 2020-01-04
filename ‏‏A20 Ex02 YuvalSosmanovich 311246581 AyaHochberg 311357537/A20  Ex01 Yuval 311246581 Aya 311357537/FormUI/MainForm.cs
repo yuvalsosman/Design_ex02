@@ -32,6 +32,17 @@ namespace FormsUI
             saveAppSettingsBeforeFormClosing();
         }
 
+        private void fetchAllDataButton_Click(object sender, EventArgs e)
+        {
+            mainFormFacade.fetchAll();
+            friendsBindingSource.DataSource = mainFormFacade.friendList;
+            postBindingSource.DataSource = mainFormFacade.postsList;
+            photoBindingSource.DataSource = mainFormFacade.favoritePicture;
+            likedPagesBindingSource.DataSource = mainFormFacade.pagesList;
+            eventBindingSource.DataSource = mainFormFacade.eventList;
+
+        }
+
         private void linkFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             mainFormFacade.fetchFriendsList();
@@ -169,6 +180,5 @@ namespace FormsUI
             Application.Exit();
         }
 
-      
     }
 }

@@ -40,11 +40,14 @@
             this.singleStatusCheckBox = new System.Windows.Forms.CheckBox();
             this.femaleCheckBox = new System.Windows.Forms.CheckBox();
             this.maleCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchPictureBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.matchPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.matchPictureBox);
             this.panel1.Controls.Add(this.descriptionLabel2);
             this.panel1.Controls.Add(this.filteredListOfFreinds);
             this.panel1.Controls.Add(this.filterSubmitButton);
@@ -58,7 +61,7 @@
             this.panel1.Controls.Add(this.maleCheckBox);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(625, 382);
+            this.panel1.Size = new System.Drawing.Size(760, 382);
             this.panel1.TabIndex = 0;
             // 
             // descriptionLabel2
@@ -81,6 +84,7 @@
             this.filteredListOfFreinds.Name = "filteredListOfFreinds";
             this.filteredListOfFreinds.Size = new System.Drawing.Size(282, 304);
             this.filteredListOfFreinds.TabIndex = 45;
+            this.filteredListOfFreinds.SelectedIndexChanged += new System.EventHandler(this.filteredListOfFreinds_SelectedIndexChanged);
             // 
             // filterSubmitButton
             // 
@@ -179,17 +183,26 @@
             this.maleCheckBox.Text = "Male";
             this.maleCheckBox.UseVisualStyleBackColor = true;
             // 
+            // matchPictureBox
+            // 
+            this.matchPictureBox.Location = new System.Drawing.Point(610, 52);
+            this.matchPictureBox.Name = "matchPictureBox";
+            this.matchPictureBox.Size = new System.Drawing.Size(126, 114);
+            this.matchPictureBox.TabIndex = 47;
+            this.matchPictureBox.TabStop = false;
+            // 
             // FilterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.ClientSize = new System.Drawing.Size(660, 407);
+            this.ClientSize = new System.Drawing.Size(785, 408);
             this.Controls.Add(this.panel1);
             this.Name = "FilterForm";
             this.Text = "FilterForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.matchPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +221,6 @@
         private System.Windows.Forms.CheckBox maleCheckBox;
         private System.Windows.Forms.Label descriptionLabel2;
         private System.Windows.Forms.ListBox filteredListOfFreinds;
+        private System.Windows.Forms.PictureBox matchPictureBox;
     }
 }

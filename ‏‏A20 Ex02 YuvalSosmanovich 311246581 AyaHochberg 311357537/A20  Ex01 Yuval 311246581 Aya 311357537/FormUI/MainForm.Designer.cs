@@ -69,6 +69,7 @@
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.filterFriendButton = new System.Windows.Forms.Button();
+            this.fetchAllDataButton = new System.Windows.Forms.Button();
             birthdayLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -500,12 +501,24 @@
             this.filterFriendButton.UseVisualStyleBackColor = false;
             this.filterFriendButton.Click += new System.EventHandler(this.filterFriendButton_Click);
             // 
+            // fetchAllDataButton
+            // 
+            this.fetchAllDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.fetchAllDataButton.Location = new System.Drawing.Point(56, 252);
+            this.fetchAllDataButton.Name = "fetchAllDataButton";
+            this.fetchAllDataButton.Size = new System.Drawing.Size(62, 76);
+            this.fetchAllDataButton.TabIndex = 49;
+            this.fetchAllDataButton.Text = "Fetch All Data";
+            this.fetchAllDataButton.UseVisualStyleBackColor = false;
+            this.fetchAllDataButton.Click += new System.EventHandler(this.fetchAllDataButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.ClientSize = new System.Drawing.Size(1066, 1050);
+            this.Controls.Add(this.fetchAllDataButton);
             this.Controls.Add(this.filterFriendButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -573,6 +586,7 @@
         private System.Windows.Forms.BindingSource eventBindingSource;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button filterFriendButton;
+        private System.Windows.Forms.Button fetchAllDataButton;
     }
 }
 
