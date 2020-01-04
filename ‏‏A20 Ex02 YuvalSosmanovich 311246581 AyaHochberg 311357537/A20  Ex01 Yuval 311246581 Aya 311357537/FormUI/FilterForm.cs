@@ -10,6 +10,9 @@ namespace FormsUI
     {
         private const string k_EmptyFilteredFriendListMessage = "Your filtered friend list is empty, please change you filterparameters:)";
         private const string k_FetchBeforeFilterMessage = "You dont have friends in you friend list , please try to fecth firends to your friend list first and than try to filter again...";
+        private const string k_FetchBeforeClickLikeMessage = "You didnt choose a friends from your match list , please choose a friend first...";
+        private const string k_EmptyMatchListMessage = "You dont have any friends in your match list...";
+        private static HashSet<User> s_likedList = new HashSet<User>();
 
         public FilterForm()
         {
@@ -24,6 +27,40 @@ namespace FormsUI
         private void filteredListOfFreinds_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayMatchPicture();
+        }
+
+        private void likeButton_Click(object sender, EventArgs e)
+        {
+            if (filteredListOfFreinds.SelectedItems.Count == 1)
+            {
+                User selectedFriend = filteredListOfFreinds.SelectedItem as User;
+                s_likedList.Add(selectedFriend);
+            }
+            else
+            {
+                MessageBox.Show(k_FetchBeforeClickLikeMessage);
+            }
+            filteredListOfFreinds.SelectedItems.Clear();
+        }
+
+        private void likedListButton_Click(object sender, EventArgs e)
+        {
+            this.filteredListOfFreinds.Items.Clear();
+            this.filteredListOfFreinds.DisplayMember = "Name";
+            if(s_likedList.Count > 0)
+            {
+                foreach (User friend in s_likedList)
+                {
+                    this.filteredListOfFreinds.Items.Add(friend);
+                    friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
+                }
+            }
+            else
+            {
+                MessageBox.Show(k_EmptyMatchListMessage);
+            }
+
+
         }
 
         private void filterFriendList()
@@ -65,7 +102,6 @@ namespace FormsUI
                     matchPictureBox.Image = matchPictureBox.ErrorImage;
                 }
             }
-            filteredListOfFreinds.SelectedItems.Clear();
         }
     }
 }

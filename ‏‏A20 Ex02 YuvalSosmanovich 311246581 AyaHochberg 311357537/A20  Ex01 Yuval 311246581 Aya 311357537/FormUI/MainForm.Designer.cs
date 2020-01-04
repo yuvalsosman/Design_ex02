@@ -49,14 +49,13 @@
             this.logOutButton = new System.Windows.Forms.Button();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.gamePhoto = new System.Windows.Forms.PictureBox();
-            this.panelInfo = new System.Windows.Forms.Panel();
+            this.infoPanel = new System.Windows.Forms.Panel();
             this.birthdayLabel1 = new System.Windows.Forms.Label();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emailLabel1 = new System.Windows.Forms.Label();
             this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
             this.nameLabel1 = new System.Windows.Forms.Label();
             this.religionLabel1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.eventListBox = new System.Windows.Forms.ListBox();
             this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.languagesListBox = new System.Windows.Forms.ListBox();
@@ -70,6 +69,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.filterFriendButton = new System.Windows.Forms.Button();
             this.fetchAllDataButton = new System.Windows.Forms.Button();
+            this.mainDataPanel = new System.Windows.Forms.Panel();
             birthdayLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -78,10 +78,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSymbol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamePhoto)).BeginInit();
-            this.panelInfo.SuspendLayout();
+            this.infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPagesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox1)).BeginInit();
@@ -89,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.friendsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.mainDataPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // birthdayLabel
@@ -307,23 +307,23 @@
             this.gamePhoto.TabIndex = 44;
             this.gamePhoto.TabStop = false;
             // 
-            // panelInfo
+            // infoPanel
             // 
-            this.panelInfo.Controls.Add(birthdayLabel);
-            this.panelInfo.Controls.Add(this.birthdayLabel1);
-            this.panelInfo.Controls.Add(emailLabel);
-            this.panelInfo.Controls.Add(this.emailLabel1);
-            this.panelInfo.Controls.Add(this.imageNormalPictureBox);
-            this.panelInfo.Controls.Add(nameLabel);
-            this.panelInfo.Controls.Add(this.nameLabel1);
-            this.panelInfo.Controls.Add(religionLabel);
-            this.panelInfo.Controls.Add(this.religionLabel1);
-            this.panelInfo.Controls.Add(this.descriptionLabel);
-            this.panelInfo.Controls.Add(this.logOutButton);
-            this.panelInfo.Location = new System.Drawing.Point(120, 27);
-            this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(422, 207);
-            this.panelInfo.TabIndex = 45;
+            this.infoPanel.Controls.Add(birthdayLabel);
+            this.infoPanel.Controls.Add(this.birthdayLabel1);
+            this.infoPanel.Controls.Add(emailLabel);
+            this.infoPanel.Controls.Add(this.emailLabel1);
+            this.infoPanel.Controls.Add(this.imageNormalPictureBox);
+            this.infoPanel.Controls.Add(nameLabel);
+            this.infoPanel.Controls.Add(this.nameLabel1);
+            this.infoPanel.Controls.Add(religionLabel);
+            this.infoPanel.Controls.Add(this.religionLabel1);
+            this.infoPanel.Controls.Add(this.descriptionLabel);
+            this.infoPanel.Controls.Add(this.logOutButton);
+            this.infoPanel.Location = new System.Drawing.Point(120, 27);
+            this.infoPanel.Name = "infoPanel";
+            this.infoPanel.Size = new System.Drawing.Size(422, 207);
+            this.infoPanel.TabIndex = 45;
             // 
             // birthdayLabel1
             // 
@@ -373,27 +373,6 @@
             this.religionLabel1.Size = new System.Drawing.Size(225, 25);
             this.religionLabel1.TabIndex = 50;
             this.religionLabel1.Text = "label1";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.eventListBox);
-            this.panel1.Controls.Add(this.languagesListBox);
-            this.panel1.Controls.Add(this.imageNormalPictureBox1);
-            this.panel1.Controls.Add(this.userListBox);
-            this.panel1.Controls.Add(this.startGameButton);
-            this.panel1.Controls.Add(this.gamePhoto);
-            this.panel1.Controls.Add(this.postListBox);
-            this.panel1.Controls.Add(this.linkPages);
-            this.panel1.Controls.Add(this.linkPosts);
-            this.panel1.Controls.Add(this.linkFriends);
-            this.panel1.Controls.Add(this.linkFavoritePicture);
-            this.panel1.Controls.Add(this.pictureBoxEvent);
-            this.panel1.Controls.Add(this.pictureBoxFriends);
-            this.panel1.Controls.Add(this.linkEvents);
-            this.panel1.Location = new System.Drawing.Point(120, 252);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(934, 786);
-            this.panel1.TabIndex = 46;
             // 
             // eventListBox
             // 
@@ -512,6 +491,27 @@
             this.fetchAllDataButton.UseVisualStyleBackColor = false;
             this.fetchAllDataButton.Click += new System.EventHandler(this.fetchAllDataButton_Click);
             // 
+            // mainDataPanel
+            // 
+            this.mainDataPanel.Controls.Add(this.eventListBox);
+            this.mainDataPanel.Controls.Add(this.languagesListBox);
+            this.mainDataPanel.Controls.Add(this.imageNormalPictureBox1);
+            this.mainDataPanel.Controls.Add(this.userListBox);
+            this.mainDataPanel.Controls.Add(this.startGameButton);
+            this.mainDataPanel.Controls.Add(this.gamePhoto);
+            this.mainDataPanel.Controls.Add(this.postListBox);
+            this.mainDataPanel.Controls.Add(this.linkPages);
+            this.mainDataPanel.Controls.Add(this.linkPosts);
+            this.mainDataPanel.Controls.Add(this.linkFriends);
+            this.mainDataPanel.Controls.Add(this.linkFavoritePicture);
+            this.mainDataPanel.Controls.Add(this.pictureBoxEvent);
+            this.mainDataPanel.Controls.Add(this.pictureBoxFriends);
+            this.mainDataPanel.Controls.Add(this.linkEvents);
+            this.mainDataPanel.Location = new System.Drawing.Point(120, 252);
+            this.mainDataPanel.Name = "mainDataPanel";
+            this.mainDataPanel.Size = new System.Drawing.Size(934, 786);
+            this.mainDataPanel.TabIndex = 46;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -521,8 +521,8 @@
             this.Controls.Add(this.fetchAllDataButton);
             this.Controls.Add(this.filterFriendButton);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelInfo);
+            this.Controls.Add(this.mainDataPanel);
+            this.Controls.Add(this.infoPanel);
             this.Controls.Add(this.pictureBoxSymbol);
             this.Controls.Add(this.postStatus);
             this.Controls.Add(this.postSubmitButton);
@@ -532,12 +532,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSymbol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamePhoto)).EndInit();
-            this.panelInfo.ResumeLayout(false);
-            this.panelInfo.PerformLayout();
+            this.infoPanel.ResumeLayout(false);
+            this.infoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPagesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageNormalPictureBox1)).EndInit();
@@ -545,6 +543,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.friendsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.mainDataPanel.ResumeLayout(false);
+            this.mainDataPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,13 +567,12 @@
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.PictureBox gamePhoto;
         private System.Windows.Forms.BindingSource userBindingSource;
-        private System.Windows.Forms.Panel panelInfo;
+        private System.Windows.Forms.Panel infoPanel;
         private System.Windows.Forms.Label birthdayLabel1;
         private System.Windows.Forms.Label emailLabel1;
         private System.Windows.Forms.PictureBox imageNormalPictureBox;
         private System.Windows.Forms.Label nameLabel1;
         private System.Windows.Forms.Label religionLabel1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox postListBox;
         private System.Windows.Forms.BindingSource postBindingSource;
         private System.Windows.Forms.ListBox userListBox;
@@ -587,6 +586,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button filterFriendButton;
         private System.Windows.Forms.Button fetchAllDataButton;
+        private System.Windows.Forms.Panel mainDataPanel;
     }
 }
 

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.likedListButton = new System.Windows.Forms.Button();
+            this.likeButton = new System.Windows.Forms.Button();
+            this.matchPictureBox = new System.Windows.Forms.PictureBox();
             this.descriptionLabel2 = new System.Windows.Forms.Label();
             this.filteredListOfFreinds = new System.Windows.Forms.ListBox();
             this.filterSubmitButton = new System.Windows.Forms.Button();
@@ -40,13 +43,14 @@
             this.singleStatusCheckBox = new System.Windows.Forms.CheckBox();
             this.femaleCheckBox = new System.Windows.Forms.CheckBox();
             this.maleCheckBox = new System.Windows.Forms.CheckBox();
-            this.matchPictureBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.matchPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.likedListButton);
+            this.panel1.Controls.Add(this.likeButton);
             this.panel1.Controls.Add(this.matchPictureBox);
             this.panel1.Controls.Add(this.descriptionLabel2);
             this.panel1.Controls.Add(this.filteredListOfFreinds);
@@ -63,6 +67,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(760, 382);
             this.panel1.TabIndex = 0;
+            // 
+            // likedListButton
+            // 
+            this.likedListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.likedListButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.likedListButton.Location = new System.Drawing.Point(95, 261);
+            this.likedListButton.Name = "likedListButton";
+            this.likedListButton.Size = new System.Drawing.Size(218, 45);
+            this.likedListButton.TabIndex = 50;
+            this.likedListButton.Text = "Show Me My Likes ➔";
+            this.likedListButton.UseVisualStyleBackColor = false;
+            this.likedListButton.Click += new System.EventHandler(this.likedListButton_Click);
+            // 
+            // likeButton
+            // 
+            this.likeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.likeButton.Location = new System.Drawing.Point(610, 300);
+            this.likeButton.Name = "likeButton";
+            this.likeButton.Size = new System.Drawing.Size(126, 54);
+            this.likeButton.TabIndex = 48;
+            this.likeButton.Text = "Like";
+            this.likeButton.UseVisualStyleBackColor = false;
+            this.likeButton.Click += new System.EventHandler(this.likeButton_Click);
+            // 
+            // matchPictureBox
+            // 
+            this.matchPictureBox.Location = new System.Drawing.Point(610, 52);
+            this.matchPictureBox.Name = "matchPictureBox";
+            this.matchPictureBox.Size = new System.Drawing.Size(126, 114);
+            this.matchPictureBox.TabIndex = 47;
+            this.matchPictureBox.TabStop = false;
             // 
             // descriptionLabel2
             // 
@@ -90,11 +125,11 @@
             // 
             this.filterSubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.filterSubmitButton.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterSubmitButton.Location = new System.Drawing.Point(214, 312);
+            this.filterSubmitButton.Location = new System.Drawing.Point(95, 312);
             this.filterSubmitButton.Name = "filterSubmitButton";
-            this.filterSubmitButton.Size = new System.Drawing.Size(99, 42);
+            this.filterSubmitButton.Size = new System.Drawing.Size(218, 42);
             this.filterSubmitButton.TabIndex = 44;
-            this.filterSubmitButton.Text = "FILTER ➔";
+            this.filterSubmitButton.Text = "FIND ME MATCH ➔";
             this.filterSubmitButton.UseVisualStyleBackColor = false;
             this.filterSubmitButton.Click += new System.EventHandler(this.filterSubmitButton_Click);
             // 
@@ -183,14 +218,6 @@
             this.maleCheckBox.Text = "Male";
             this.maleCheckBox.UseVisualStyleBackColor = true;
             // 
-            // matchPictureBox
-            // 
-            this.matchPictureBox.Location = new System.Drawing.Point(610, 52);
-            this.matchPictureBox.Name = "matchPictureBox";
-            this.matchPictureBox.Size = new System.Drawing.Size(126, 114);
-            this.matchPictureBox.TabIndex = 47;
-            this.matchPictureBox.TabStop = false;
-            // 
             // FilterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -222,5 +249,7 @@
         private System.Windows.Forms.Label descriptionLabel2;
         private System.Windows.Forms.ListBox filteredListOfFreinds;
         private System.Windows.Forms.PictureBox matchPictureBox;
+        private System.Windows.Forms.Button likedListButton;
+        private System.Windows.Forms.Button likeButton;
     }
 }
