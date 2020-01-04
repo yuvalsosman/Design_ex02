@@ -50,7 +50,7 @@ namespace FormsUI
         private void fetchFriendsInNewThread()
         {
             mainFormFacade.fetchFriendsList();
-            Invoke(new Action(() => friendsBindingSource.DataSource = mainFormFacade.friendList));
+            Invoke(new Action(() => friendsBindingSource.DataSource = mainFormFacade.m_FriendList));
         }
 
         private void fetchPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -61,7 +61,7 @@ namespace FormsUI
         private void fetchPostsInNewThread()
         {
             mainFormFacade.fetchPosts();
-            Invoke(new Action(() => postBindingSource.DataSource = mainFormFacade.postsList));
+            Invoke(new Action(() => postBindingSource.DataSource = mainFormFacade.m_PostsList));
         }
 
         private void fetchFavoritePicture_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -72,7 +72,7 @@ namespace FormsUI
         private void fetchFavoritePictureInNewThread()
         {
             mainFormFacade.fetchFavoritePicture();
-            Invoke(new Action(() => photoBindingSource.DataSource = mainFormFacade.favoritePicture));
+            Invoke(new Action(() => photoBindingSource.DataSource = mainFormFacade.m_FavoritePicture));
         }
 
         private void LinkPages_OnClick(object sender, LinkLabelLinkClickedEventArgs e)
@@ -83,7 +83,7 @@ namespace FormsUI
         private void fetchPagesInNewThread()
         {
             mainFormFacade.fetchPages();
-            Invoke(new Action(() => likedPagesBindingSource.DataSource = mainFormFacade.pagesList));
+            Invoke(new Action(() => likedPagesBindingSource.DataSource = mainFormFacade.m_PagesList));
         }
 
         private void linkEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -94,7 +94,7 @@ namespace FormsUI
         private void fetchEventsInNewThread()
         {
             mainFormFacade.fetchEvents();
-            Invoke(new Action(() => eventBindingSource.DataSource = mainFormFacade.eventList));
+            Invoke(new Action(() => eventBindingSource.DataSource = mainFormFacade.m_EventList));
         }
 
         private void startGameButton_OnClick(object sender, EventArgs e)
