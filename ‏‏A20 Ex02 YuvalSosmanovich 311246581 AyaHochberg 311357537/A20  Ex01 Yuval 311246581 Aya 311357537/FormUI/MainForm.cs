@@ -6,7 +6,7 @@ using FormsUI.FacebookAppLogic;
 
 namespace FormsUI
 {
-    public partial class MainForm : Form
+    public sealed partial class MainForm : Form
     {
         public static AppSettings s_AppSettings;
         private static readonly object sr_InstanceLockContext = new object();
