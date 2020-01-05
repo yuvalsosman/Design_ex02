@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace FormsUI.FacebookAppLogic
 {
-    internal class MainFormFacade
+    internal sealed class MainFormFacade
     {
         private static readonly object sr_InstanceLockContext = new object();
         private static MainFormFacade s_MainFormFacadeInstance = null;
