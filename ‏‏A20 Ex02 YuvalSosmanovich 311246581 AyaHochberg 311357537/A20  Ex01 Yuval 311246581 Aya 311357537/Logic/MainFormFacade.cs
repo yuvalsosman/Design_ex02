@@ -9,7 +9,6 @@ namespace FormsUI.FacebookAppLogic
     internal class MainFormFacade
     {
         private static readonly object sr_InstanceLockContext = new object();
-        private static readonly object sr_UserLockContext = new object();
         private static MainFormFacade s_MainFormFacadeInstance = null;
         private User m_LoginUser { get; set; }
         internal static List<User> s_FriendList { get; set; }

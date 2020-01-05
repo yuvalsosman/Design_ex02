@@ -7,7 +7,6 @@
         public const string k_NoDataToFetchMessage = "No data to retrieve :(";
         public const string k_FetchPerrmissionDenyMessage = "You dont have permmissions for fetching this Item - we are sorry :( , message error: {0}";
         public const string k_EmptyFriendListMessage = "Your friend list is empty, please return to the main page and fetch friend list :)";
-        public const string k_AlreadyLoggedInMessage = "You are already login to facebook , you first need to log out before log in again :)";
         public enum eFormName
         {
             Game,
