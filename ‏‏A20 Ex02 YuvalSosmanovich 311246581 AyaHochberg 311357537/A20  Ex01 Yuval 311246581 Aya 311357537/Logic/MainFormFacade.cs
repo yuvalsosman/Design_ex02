@@ -8,10 +8,10 @@ namespace FormsUI.FacebookAppLogic
 {
     internal class MainFormFacade
     {
-        private const string k_NoDataToFetchMessage = "No data to retrieve :(";
-        private const string k_FetchPerrmissionDenyMessage = "You dont have permmissions for fetching this Item - we are sorry :( , message error: {0}";
-        internal const string k_EmptyFriendListMessage = "Your friend list is empty, please return to the main page and fetch friend list:)";
-        internal static User s_LoginUser { get; set; }
+        private static readonly object sr_InstanceLockContext = new object();
+        private static readonly object sr_UserLockContext = new object();
+        private static MainFormFacade s_MainFormFacadeInstance = null;
+        private User m_LoginUser { get; set; }
         internal static List<User> s_FriendList { get; set; }
         internal FacebookObjectCollection<Event> m_EventList { get; set; }
         internal FacebookObjectCollection<User> m_FriendList { get; set; }
@@ -20,9 +20,42 @@ namespace FormsUI.FacebookAppLogic
         internal FacebookObjectCollection<Page> m_PagesList { get; set; }
         internal Photo m_FavoritePicture { get; set; }
 
-        internal MainFormFacade()
+        private MainFormFacade()
+        {
+        }
+
+        public static MainFormFacade GetInstance()
         {
             s_FriendList = new List<User>();
+            if (s_MainFormFacadeInstance == null)
+            {
+                lock (sr_InstanceLockContext)
+                {
+                    if (s_MainFormFacadeInstance == null)
+                    {
+                        s_MainFormFacadeInstance = new MainFormFacade();
+                    }
+                }
+            }
+            return s_MainFormFacadeInstance;
+        }
+
+        public User LoginUser
+        {
+            get
+            {
+                return m_LoginUser;
+            }
+            set
+            {
+                if (m_LoginUser == null)
+                {
+                    if (m_LoginUser == null)
+                    {
+                        m_LoginUser = value;
+                    }
+                }
+            }
         }
 
         internal void fetchFriendsList()
@@ -31,13 +64,13 @@ namespace FormsUI.FacebookAppLogic
             m_FriendList = new FacebookObjectCollection<User>();
             try
             {
-                if (s_LoginUser.Friends.Count == 0)
+                if (m_LoginUser.Friends.Count == 0)
                 {
-                    MessageBox.Show(k_NoDataToFetchMessage);
+                    MessageBox.Show(Utils.k_NoDataToFetchMessage);
                 }
                 else
                 {
-                    foreach (User friend in s_LoginUser.Friends)
+                    foreach (User friend in m_LoginUser.Friends)
                     {
                         m_FriendList.Add(friend);
                         s_FriendList.Add(friend);
@@ -47,7 +80,7 @@ namespace FormsUI.FacebookAppLogic
             }
             catch (Exception e)
             {
-                MessageBox.Show(String.Format(k_FetchPerrmissionDenyMessage, e.Message));
+                MessageBox.Show(String.Format(Utils.k_FetchPerrmissionDenyMessage, e.Message));
             }
         }
 
@@ -56,31 +89,31 @@ namespace FormsUI.FacebookAppLogic
             m_PostsList = new FacebookObjectCollection<Post>();
             try
             {
-                foreach (Post post in s_LoginUser.Posts)
+                foreach (Post post in m_LoginUser.Posts)
                 {
                     if (!string.IsNullOrEmpty(post.Message) || !string.IsNullOrEmpty(post.Caption))
                     {
                         m_PostsList.Add(post);
                     }
                 }
-                if (s_LoginUser.Posts.Count == 0)
+                if (m_LoginUser.Posts.Count == 0)
                 {
-                    MessageBox.Show(k_NoDataToFetchMessage);
+                    MessageBox.Show(Utils.k_NoDataToFetchMessage);
                 }
 
             }
             catch (Exception e)
             {
-                MessageBox.Show(String.Format(k_FetchPerrmissionDenyMessage, e.Message));
+                MessageBox.Show(String.Format(Utils.k_FetchPerrmissionDenyMessage, e.Message));
             }
         }
 
         internal void fetchFavoritePicture()
         {
-            m_FavoritePicture = s_LoginUser.PhotosTaggedIn.First();
+            m_FavoritePicture = m_LoginUser.PhotosTaggedIn.First();
             try
             {
-                foreach (Photo photo in s_LoginUser.PhotosTaggedIn)
+                foreach (Photo photo in m_LoginUser.PhotosTaggedIn)
                 {
                     if (photo.LikedBy.Count > m_FavoritePicture.LikedBy.Count)
                     {
@@ -90,7 +123,7 @@ namespace FormsUI.FacebookAppLogic
             }
             catch (Exception e)
             {
-                MessageBox.Show(String.Format(k_FetchPerrmissionDenyMessage, e.Message));
+                MessageBox.Show(String.Format(Utils.k_FetchPerrmissionDenyMessage, e.Message));
             }
         }
 
@@ -99,18 +132,18 @@ namespace FormsUI.FacebookAppLogic
             m_PagesList = new FacebookObjectCollection<Page>();
             try
             {
-                foreach (Page page in s_LoginUser.LikedPages)
+                foreach (Page page in m_LoginUser.LikedPages)
                 {
                     m_PagesList.Add(page);
                 }
-                if (s_LoginUser.LikedPages.Count == 0)
+                if (m_LoginUser.LikedPages.Count == 0)
                 {
-                    MessageBox.Show(k_NoDataToFetchMessage);
+                    MessageBox.Show(Utils.k_NoDataToFetchMessage);
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(String.Format(k_FetchPerrmissionDenyMessage, e.Message));
+                MessageBox.Show(String.Format(Utils.k_FetchPerrmissionDenyMessage, e.Message));
             }
         }
 
@@ -119,22 +152,21 @@ namespace FormsUI.FacebookAppLogic
             m_EventList = new FacebookObjectCollection<Event>();
             try
             {
-                FacebookObjectCollection<Event> Events = s_LoginUser.Events;
+                FacebookObjectCollection<Event> Events = m_LoginUser.Events;
                 foreach (Event fbEvent in Events)
                 {
                     m_EventList.Add(fbEvent);
                 }
-                if (s_LoginUser.Events.Count == 0)
+                if (m_LoginUser.Events.Count == 0)
                 {
-                    MessageBox.Show(k_NoDataToFetchMessage);
+                    MessageBox.Show(Utils.k_NoDataToFetchMessage);
                 }
 
             }
             catch (Exception e)
             {
-                MessageBox.Show(String.Format(k_FetchPerrmissionDenyMessage, e.Message));
+                MessageBox.Show(String.Format(Utils.k_FetchPerrmissionDenyMessage, e.Message));
             }
         }
-
     }
 }

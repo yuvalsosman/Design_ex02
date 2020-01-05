@@ -1,13 +1,10 @@
-﻿
-
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace FormsUI.FacebookAppLogic
 {
-    internal class FormFactory
+    internal static class FormFactory
     {
-
-        public Form createForm(Utils.eFormName i_FormName)
+        internal static Form createForm(Utils.eFormName i_FormName)
         {
             switch (i_FormName)
             {
@@ -18,11 +15,5 @@ namespace FormsUI.FacebookAppLogic
             }
             return null;
         }
-
-
-}
-
-
-
-
+    }
 }

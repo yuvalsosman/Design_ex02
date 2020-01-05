@@ -7,9 +7,8 @@ namespace FormsUI
 {
     public partial class WelcomeForm : Form
     {
-        private const string k_WelcomeMessage = "Hey {0} ! Welcome to our facebook v2.0 app. Enjoy your time here with us!";
-        private const string k_LoginProblemMessage = "Sorry, somthing went worng, please ty again to login to your facebook account";
         public static readonly string sr_AccessTokenFilePath = String.Format(@"{0}\ApplicationSettingsFile.xml", Application.StartupPath);
+        MainFormFacade mainFormFacade = MainFormFacade.GetInstance();
 
         public WelcomeForm()
         {
@@ -44,7 +43,7 @@ namespace FormsUI
             LoginResult loginResult = login(true);
             if(loginResult == null)
             {
-                MessageBox.Show(k_LoginProblemMessage);
+                MessageBox.Show(Utils.k_LoginProblemMessage);
             }
         }
 
@@ -57,12 +56,12 @@ namespace FormsUI
             }
             catch (Exception e)
             {
-                string message = String.Format(k_LoginProblemMessage +"{0}: {1}","Exception Details",e.Message);
+                string message = String.Format(Utils.k_LoginProblemMessage +"{0}: {1}","Exception Details",e.Message);
                 MessageBox.Show(message);
             }
             if (loginResult != null)
             {
-                MainFormFacade.s_LoginUser = loginResult.LoggedInUser;
+                mainFormFacade.LoginUser = loginResult.LoggedInUser;
                 openMainForm(loginResult);
             }
 
@@ -72,8 +71,8 @@ namespace FormsUI
         private void openMainForm(LoginResult i_LoginResult)
         {
             updateAppSetings(i_LoginResult);
-            MessageBox.Show(String.Format(k_WelcomeMessage, MainFormFacade.s_LoginUser.Name));
-            MainForm formMain = new MainForm();
+            MessageBox.Show(String.Format(Utils.k_WelcomeMessage, mainFormFacade.LoginUser.Name));
+            MainForm formMain = MainForm.GetInstance();
             formMain.Show();
             this.Hide();
         }

@@ -9,16 +9,30 @@ namespace FormsUI
     public partial class MainForm : Form
     {
         public static AppSettings s_AppSettings;
-        private FormFactory formFactory;
-        private MainFormFacade mainFormFacade;
+        private static readonly object sr_InstanceLockContext = new object();
+        private static MainForm s_MainFormInstance = null;
+        private MainFormFacade mainFormFacade = MainFormFacade.GetInstance();
 
-        public MainForm()
+        private MainForm()
         {
             InitializeComponent();
-            mainFormFacade = new MainFormFacade();
-            formFactory = new FormFactory();
-            userBindingSource.DataSource = MainFormFacade.s_LoginUser;
+            userBindingSource.DataSource = mainFormFacade.LoginUser;
             initializeForm();
+        }
+
+        public static MainForm GetInstance()
+        {
+            if (s_MainFormInstance == null)
+            {
+                lock (sr_InstanceLockContext)
+                {
+                    if (s_MainFormInstance == null)
+                    {
+                        s_MainFormInstance = new MainForm();
+                    }
+                }
+            }
+            return s_MainFormInstance;
         }
 
         private void initializeForm()
@@ -147,7 +161,7 @@ namespace FormsUI
         {
             try
             {
-                Status postedStatus = MainFormFacade.s_LoginUser.PostStatus(textForPost.Text);
+                Status postedStatus = mainFormFacade.LoginUser.PostStatus(textForPost.Text);
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch (Exception e)
@@ -160,7 +174,7 @@ namespace FormsUI
         {
             if (MainFormFacade.s_FriendList.Count > 0)
             {
-                Form gameForm = formFactory.createForm(Utils.eFormName.Game);
+                Form gameForm = FormFactory.createForm(Utils.eFormName.Game);
                 if (gameForm != null)
                 {
                     gameForm.Show();
@@ -168,7 +182,7 @@ namespace FormsUI
             }
             else
             {
-                MessageBox.Show(MainFormFacade.k_EmptyFriendListMessage);
+                MessageBox.Show(Utils.k_EmptyFriendListMessage);
             }
         }
 
@@ -176,7 +190,7 @@ namespace FormsUI
         {
             if (MainFormFacade.s_FriendList.Count > 0)
             {
-                Form filterForm = formFactory.createForm(Utils.eFormName.Filter);
+                Form filterForm = FormFactory.createForm(Utils.eFormName.Filter);
                 if (filterForm != null)
                 {
                     filterForm.Show();
@@ -184,7 +198,7 @@ namespace FormsUI
             }
             else
             {
-                MessageBox.Show(MainFormFacade.k_EmptyFriendListMessage);
+                MessageBox.Show(Utils.k_EmptyFriendListMessage);
             }
         }
 
