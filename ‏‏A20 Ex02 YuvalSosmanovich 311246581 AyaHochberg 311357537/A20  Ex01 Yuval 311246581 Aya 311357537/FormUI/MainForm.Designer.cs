@@ -270,7 +270,7 @@
             this.linkPages.TabIndex = 39;
             this.linkPages.TabStop = true;
             this.linkPages.Text = "Fetch Liked Pages ➔";
-            this.linkPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkPages_OnClick);
+            this.linkPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPages_OnClick);
             // 
             // logOutButton
             // 

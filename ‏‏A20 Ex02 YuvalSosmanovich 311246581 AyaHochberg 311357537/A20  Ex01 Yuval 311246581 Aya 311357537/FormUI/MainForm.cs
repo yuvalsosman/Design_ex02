@@ -11,12 +11,12 @@ namespace FormsUI
         public static AppSettings s_AppSettings;
         private static readonly object sr_InstanceLockContext = new object();
         private static MainForm s_MainFormInstance = null;
-        private MainFormFacade mainFormFacade = MainFormFacade.GetInstance();
+        private MainFormFacade m_MainFormFacade = MainFormFacade.GetInstance();
 
         private MainForm()
         {
             InitializeComponent();
-            userBindingSource.DataSource = mainFormFacade.m_LoginUser;
+            userBindingSource.DataSource = m_MainFormFacade.m_LoginUser;
             initializeForm();
         }
 
@@ -63,8 +63,8 @@ namespace FormsUI
 
         private void fetchFriendsInNewThread()
         {
-            mainFormFacade.fetchFriendsList();
-            Invoke(new Action(() => friendsBindingSource.DataSource = mainFormFacade.m_FriendList));
+            m_MainFormFacade.fetchFriendsList();
+            Invoke(new Action(() => friendsBindingSource.DataSource = m_MainFormFacade.m_FriendList));
         }
 
         private void fetchPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -74,8 +74,8 @@ namespace FormsUI
 
         private void fetchPostsInNewThread()
         {
-            mainFormFacade.fetchPosts();
-            Invoke(new Action(() => postBindingSource.DataSource = mainFormFacade.m_PostsList));
+            m_MainFormFacade.fetchPosts();
+            Invoke(new Action(() => postBindingSource.DataSource = m_MainFormFacade.m_PostsList));
         }
 
         private void fetchFavoritePicture_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -85,19 +85,19 @@ namespace FormsUI
 
         private void fetchFavoritePictureInNewThread()
         {
-            mainFormFacade.fetchFavoritePicture();
-            Invoke(new Action(() => photoBindingSource.DataSource = mainFormFacade.m_FavoritePicture));
+            m_MainFormFacade.fetchFavoritePicture();
+            Invoke(new Action(() => photoBindingSource.DataSource = m_MainFormFacade.m_FavoritePicture));
         }
 
-        private void LinkPages_OnClick(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkPages_OnClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new Thread(fetchPagesInNewThread).Start();
         }
 
         private void fetchPagesInNewThread()
         {
-            mainFormFacade.fetchPages();
-            Invoke(new Action(() => likedPagesBindingSource.DataSource = mainFormFacade.m_PagesList));
+            m_MainFormFacade.fetchPages();
+            Invoke(new Action(() => likedPagesBindingSource.DataSource = m_MainFormFacade.m_PagesList));
         }
 
         private void linkEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -107,8 +107,8 @@ namespace FormsUI
 
         private void fetchEventsInNewThread()
         {
-            mainFormFacade.fetchEvents();
-            Invoke(new Action(() => eventBindingSource.DataSource = mainFormFacade.m_EventList));
+            m_MainFormFacade.fetchEvents();
+            Invoke(new Action(() => eventBindingSource.DataSource = m_MainFormFacade.m_EventList));
         }
 
         private void startGameButton_OnClick(object sender, EventArgs e)
@@ -161,7 +161,7 @@ namespace FormsUI
         {
             try
             {
-                Status postedStatus = mainFormFacade.m_LoginUser.PostStatus(textForPost.Text);
+                Status postedStatus = m_MainFormFacade.m_LoginUser.PostStatus(textForPost.Text);
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch (Exception e)
@@ -174,7 +174,7 @@ namespace FormsUI
         {
             if (MainFormFacade.s_FriendList.Count > 0)
             {
-                Form gameForm = FormFactory.createForm(Utils.eFormName.Game);
+                Form gameForm = FormFactory.CreateForm(Utils.eFormName.Game);
                 if (gameForm != null)
                 {
                     gameForm.Show();
@@ -190,7 +190,7 @@ namespace FormsUI
         {
             if (MainFormFacade.s_FriendList.Count > 0)
             {
-                Form filterForm = FormFactory.createForm(Utils.eFormName.Filter);
+                Form filterForm = FormFactory.CreateForm(Utils.eFormName.Filter);
                 if (filterForm != null)
                 {
                     filterForm.Show();

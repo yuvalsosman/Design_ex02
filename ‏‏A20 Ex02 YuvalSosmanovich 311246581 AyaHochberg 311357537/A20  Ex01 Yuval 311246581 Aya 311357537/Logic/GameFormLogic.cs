@@ -6,7 +6,7 @@ namespace FormsUI.FacebookAppLogic
 {
     internal sealed class GameFormLogic
     {
-        private const int r_NumberOfNameToRandom = 5;
+        private const int k_NumberOfNameToRandom = 5;
         private static Random s_RandomUserGuess = new Random();
         private List<string> m_RandomNamesToChoose = new List<string>();
         private string m_PrevUserNameToGuess;
@@ -17,7 +17,7 @@ namespace FormsUI.FacebookAppLogic
         {
             resetGame();
             int randomNumber = s_RandomUserGuess.Next(m_NumberOfFriends);
-            int numberOfNameToRandom = r_NumberOfNameToRandom <= m_NumberOfFriends ? r_NumberOfNameToRandom : m_NumberOfFriends;
+            int numberOfNameToRandom = k_NumberOfNameToRandom <= m_NumberOfFriends ? k_NumberOfNameToRandom : m_NumberOfFriends;
             m_RandomNamesToChoose.Add(m_CurrentNameToGuess);
             while (m_RandomNamesToChoose.Count < numberOfNameToRandom)
             {

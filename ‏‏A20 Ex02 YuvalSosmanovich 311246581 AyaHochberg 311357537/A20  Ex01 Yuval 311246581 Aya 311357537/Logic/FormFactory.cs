@@ -4,7 +4,7 @@ namespace FormsUI.FacebookAppLogic
 {
     internal static class FormFactory
     {
-        internal static Form createForm(Utils.eFormName i_FormName)
+        internal static Form CreateForm(Utils.eFormName i_FormName)
         {
             switch (i_FormName)
             {

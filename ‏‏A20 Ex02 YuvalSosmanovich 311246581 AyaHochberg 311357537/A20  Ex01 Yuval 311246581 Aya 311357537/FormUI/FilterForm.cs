@@ -8,11 +8,8 @@ namespace FormsUI
 {
     public partial class FilterForm : Form
     {
-        private const string k_EmptyFilteredFriendListMessage = "Your filtered friend list is empty, please change you filterparameters:)";
-        private const string k_FetchBeforeFilterMessage = "You dont have friends in you friend list , please try to fecth firends to your friend list first and than try to filter again...";
-        private const string k_FetchBeforeClickLikeMessage = "You didnt choose a friends from your match list , please choose a friend first...";
-        private const string k_EmptyMatchListMessage = "You dont have any friends in your match list...";
-        private static HashSet<User> s_likedList = new HashSet<User>();
+
+        private static HashSet<User> s_LikedList = new HashSet<User>();
 
         public FilterForm()
         {
@@ -26,7 +23,7 @@ namespace FormsUI
 
         private void filteredListOfFreinds_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplayMatchPicture();
+            displayMatchPicture();
         }
 
         private void likeButton_Click(object sender, EventArgs e)
@@ -34,11 +31,11 @@ namespace FormsUI
             if (filteredListOfFreinds.SelectedItems.Count == 1)
             {
                 User selectedFriend = filteredListOfFreinds.SelectedItem as User;
-                s_likedList.Add(selectedFriend);
+                s_LikedList.Add(selectedFriend);
             }
             else
             {
-                MessageBox.Show(k_FetchBeforeClickLikeMessage);
+                MessageBox.Show(Utils.k_FetchBeforeClickLikeMessage);
             }
             filteredListOfFreinds.SelectedItems.Clear();
         }
@@ -47,9 +44,9 @@ namespace FormsUI
         {
             this.filteredListOfFreinds.Items.Clear();
             this.filteredListOfFreinds.DisplayMember = "Name";
-            if(s_likedList.Count > 0)
+            if(s_LikedList.Count > 0)
             {
-                foreach (User friend in s_likedList)
+                foreach (User friend in s_LikedList)
                 {
                     this.filteredListOfFreinds.Items.Add(friend);
                     friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
@@ -57,7 +54,7 @@ namespace FormsUI
             }
             else
             {
-                MessageBox.Show(k_EmptyMatchListMessage);
+                MessageBox.Show(Utils.k_EmptyMatchListMessage);
             }
 
 
@@ -72,7 +69,7 @@ namespace FormsUI
 
             if (filteredListOfFreinds.Count == 0)
             {
-                MessageBox.Show(k_EmptyFilteredFriendListMessage);
+                MessageBox.Show(Utils.k_EmptyFilteredFriendListMessage);
             }
             if (MainFormFacade.s_FriendList.Count > 0)
             {
@@ -84,11 +81,11 @@ namespace FormsUI
             }
             else
             {
-                MessageBox.Show(k_FetchBeforeFilterMessage);
+                MessageBox.Show(Utils.k_FetchBeforeFilterMessage);
             }
         }
 
-        private void DisplayMatchPicture()
+        private void displayMatchPicture()
         {
             if (filteredListOfFreinds.SelectedItems.Count == 1)
             {

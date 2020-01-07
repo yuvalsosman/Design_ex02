@@ -8,9 +8,6 @@ namespace FormsUI
 {
     public partial class GameForm : Form
     {
-        private const string k_WorngGuessMessage = "Worng guess, the name of the friend in the photo is: {0} ,try again or raffle to change photo..";
-        private const string k_CorrectGuessMessage = "Great, You are a fantastic friend!!! :) , click raffle to keep gueesing";
-        private const string k_EmptyFriendListMessage = "Your friend list is empty, please return to the main page and fetch friend list, than enter the game again :)";
         private GameFormLogic m_GameFormLogic = new GameFormLogic();
         private List<string> m_OptionListOfFriendsNames = new List<string>();
         private User m_CurrentUserToGuess;
@@ -48,11 +45,11 @@ namespace FormsUI
 
             if (isCorrect)
             {
-                MessageBox.Show(k_CorrectGuessMessage);
+                MessageBox.Show(Utils.k_CorrectGuessMessage);
             }
             else
             {
-                MessageBox.Show(String.Format(k_WorngGuessMessage, m_CurrentUserToGuess.Name));
+                MessageBox.Show(String.Format(Utils.k_WorngGuessMessage, m_CurrentUserToGuess.Name));
             }
 
             resetForm();

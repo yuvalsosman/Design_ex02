@@ -8,7 +8,7 @@ namespace FormsUI
     public partial class WelcomeForm : Form
     {
         public static readonly string sr_AccessTokenFilePath = String.Format(@"{0}\ApplicationSettingsFile.xml", Application.StartupPath);
-        MainFormFacade mainFormFacade = MainFormFacade.GetInstance();
+        private MainFormFacade m_MainFormFacade = MainFormFacade.GetInstance();
 
         public WelcomeForm()
         {
@@ -61,7 +61,7 @@ namespace FormsUI
             }
             if (loginResult != null)
             {
-                mainFormFacade.m_LoginUser = loginResult.LoggedInUser;
+                m_MainFormFacade.m_LoginUser = loginResult.LoggedInUser;
                 openMainForm(loginResult);
             }
 
@@ -71,7 +71,7 @@ namespace FormsUI
         private void openMainForm(LoginResult i_LoginResult)
         {
             updateAppSetings(i_LoginResult);
-            MessageBox.Show(String.Format(Utils.k_WelcomeMessage, mainFormFacade.m_LoginUser.Name));
+            MessageBox.Show(String.Format(Utils.k_WelcomeMessage, m_MainFormFacade.m_LoginUser.Name));
             MainForm formMain = MainForm.GetInstance();
             formMain.Show();
             this.Hide();

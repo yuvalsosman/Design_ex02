@@ -4,24 +4,23 @@ namespace FormsUI.FacebookAppLogic
 {
     public static class FacebookLogin
     {
-
         public static LoginResult Login(bool isButtonLoginPressed)
         {
             LoginResult loginResult = null;
 
             if (!string.IsNullOrEmpty(MainForm.s_AppSettings.LastAccessToken))
             {
-                loginResult = AutoLoginWithCertificates();
+                loginResult = mutoLoginWithCertificates();
             }
             if (isButtonLoginPressed)
             {
-                loginResult = ManualLoginWithUserDetails();
+                loginResult = manualLoginWithUserDetails();
             }
 
             return loginResult;
         }
 
-        private static LoginResult ManualLoginWithUserDetails()
+        private static LoginResult manualLoginWithUserDetails()
         {
             LoginResult loginResult = FacebookService.Login("2146465275649682",
 
@@ -52,7 +51,7 @@ namespace FormsUI.FacebookAppLogic
             return loginResult;
         }
 
-        private static LoginResult AutoLoginWithCertificates()
+        private static LoginResult mutoLoginWithCertificates()
         {
             LoginResult loginResult = FacebookService.Connect(MainForm.s_AppSettings.LastAccessToken);
             MainFormFacade.GetInstance().m_LoginUser = loginResult.LoggedInUser;
