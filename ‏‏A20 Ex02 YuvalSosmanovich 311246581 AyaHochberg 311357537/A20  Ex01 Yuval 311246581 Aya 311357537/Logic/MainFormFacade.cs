@@ -10,7 +10,7 @@ namespace FormsUI.FacebookAppLogic
     {
         private static readonly object sr_InstanceLockContext = new object();
         private static MainFormFacade s_MainFormFacadeInstance = null;
-        private User m_LoginUser { get; set; }
+        internal User m_LoginUser { get; set; }
         internal static List<User> s_FriendList { get; set; }
         internal FacebookObjectCollection<Event> m_EventList { get; set; }
         internal FacebookObjectCollection<User> m_FriendList { get; set; }
@@ -37,24 +37,6 @@ namespace FormsUI.FacebookAppLogic
                 }
             }
             return s_MainFormFacadeInstance;
-        }
-
-        public User LoginUser
-        {
-            get
-            {
-                return m_LoginUser;
-            }
-            set
-            {
-                if (m_LoginUser == null)
-                {
-                    if (m_LoginUser == null)
-                    {
-                        m_LoginUser = value;
-                    }
-                }
-            }
         }
 
         internal void fetchFriendsList()

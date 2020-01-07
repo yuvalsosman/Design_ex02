@@ -16,7 +16,7 @@ namespace FormsUI
         private MainForm()
         {
             InitializeComponent();
-            userBindingSource.DataSource = mainFormFacade.LoginUser;
+            userBindingSource.DataSource = mainFormFacade.m_LoginUser;
             initializeForm();
         }
 
@@ -161,7 +161,7 @@ namespace FormsUI
         {
             try
             {
-                Status postedStatus = mainFormFacade.LoginUser.PostStatus(textForPost.Text);
+                Status postedStatus = mainFormFacade.m_LoginUser.PostStatus(textForPost.Text);
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch (Exception e)

@@ -61,7 +61,7 @@ namespace FormsUI
             }
             if (loginResult != null)
             {
-                mainFormFacade.LoginUser = loginResult.LoggedInUser;
+                mainFormFacade.m_LoginUser = loginResult.LoggedInUser;
                 openMainForm(loginResult);
             }
 
@@ -71,7 +71,7 @@ namespace FormsUI
         private void openMainForm(LoginResult i_LoginResult)
         {
             updateAppSetings(i_LoginResult);
-            MessageBox.Show(String.Format(Utils.k_WelcomeMessage, mainFormFacade.LoginUser.Name));
+            MessageBox.Show(String.Format(Utils.k_WelcomeMessage, mainFormFacade.m_LoginUser.Name));
             MainForm formMain = MainForm.GetInstance();
             formMain.Show();
             this.Hide();
