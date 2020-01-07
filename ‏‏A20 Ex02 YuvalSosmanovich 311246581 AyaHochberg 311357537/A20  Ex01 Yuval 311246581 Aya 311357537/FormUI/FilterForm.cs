@@ -8,7 +8,6 @@ namespace FormsUI
 {
     public partial class FilterForm : Form
     {
-
         private static HashSet<User> s_LikedList = new HashSet<User>();
 
         public FilterForm()

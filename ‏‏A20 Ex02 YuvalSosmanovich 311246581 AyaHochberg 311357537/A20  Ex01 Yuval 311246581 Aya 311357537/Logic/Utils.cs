@@ -7,6 +7,13 @@
         public const string k_NoDataToFetchMessage = "No data to retrieve :(";
         public const string k_FetchPerrmissionDenyMessage = "You dont have permmissions for fetching this Item - we are sorry :( , message error: {0}";
         public const string k_EmptyFriendListMessage = "Your friend list is empty, please return to the main page and fetch friend list :)";
+        public const string k_WorngGuessMessage = "Worng guess, the name of the friend in the photo is: {0} ,try again or raffle to change photo..";
+        public const string k_CorrectGuessMessage = "Great, You are a fantastic friend!!! :) , click raffle to keep gueesing";
+        public const string k_EmptyFilteredFriendListMessage = "Your filtered friend list is empty, please change you filterparameters:)";
+        public const string k_FetchBeforeFilterMessage = "You dont have friends in you friend list , please try to fecth firends to your friend list first and than try to filter again...";
+        public const string k_FetchBeforeClickLikeMessage = "You didnt choose a friends from your match list , please choose a friend first...";
+        public const string k_EmptyMatchListMessage = "You dont have any friends in your match list...";
+
         public enum eFormName
         {
             Game,
